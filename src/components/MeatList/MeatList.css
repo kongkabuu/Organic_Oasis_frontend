@@ -1,0 +1,61 @@
+.meatlist, .meat-details{
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+}
+.meatlist-content{
+    gap: 3rem;
+}
+.meat-item{
+    padding: 3rem 2rem;
+    border-radius: 4px;
+    background-color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
+    transition: var(--transition);
+}
+.meat-item:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+.meat-item-img img{
+    max-width: 180px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.meat-item-info{
+    margin-top: 2rem;
+}
+.meat-item-info-item.title{
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+.meat-item-info-item:not(.meat-item-info-item.title) span:last-child{
+    opacity: 0.8;
+}
+.book-item-info-item.price{
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 600px){
+    .meatlist-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 992px){
+    .booklist-content{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .book-item-img img{
+        max-width: 150px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .booklist-content{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .book-item-img img{
+        max-width: 120px;
+    }
+}
