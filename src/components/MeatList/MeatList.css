@@ -30,7 +30,7 @@
 .meat-item-info-item:not(.meat-item-info-item.title) span:last-child{
     opacity: 0.8;
 }
-.book-item-info-item.price{
+.meat-item-info-item.price{
     opacity: 0.6;
     font-style: italic;
     font-size: 14px;
@@ -43,19 +43,19 @@
 }
 
 @media screen and (min-width: 992px){
-    .booklist-content{
+    .meatlist-content{
         grid-template-columns: repeat(3, 1fr);
     }
-    .book-item-img img{
+    .meat-item-img img{
         max-width: 150px;
     }
 }
 
 @media screen and (min-width: 992px){
-    .booklist-content{
+    .meatlist-content{
         grid-template-columns: repeat(4, 1fr);
     }
-    .book-item-img img{
+    .meat-item-img img{
         max-width: 120px;
     }
 }
