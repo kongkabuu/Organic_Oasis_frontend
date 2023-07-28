@@ -27,7 +27,7 @@ const MeatDetails = () => {
                 const newMeat = {
                   description: description ? description.value : "No description found",
                   title: title,
-                  //cover_img: covers ? `https://..............${covers[0]}-L.jpg` :,
+                  cover_img: covers, // `https://..............${covers[0]}-L.jpg`
                   price: price
                 };
                 setMeat(newMeat);
@@ -74,4 +74,4 @@ const MeatDetails = () => {
   )
 }
 
-export default BookDetails
+export default MeatDetails
