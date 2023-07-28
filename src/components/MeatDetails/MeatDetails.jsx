@@ -53,17 +53,25 @@ const MeatDetails = () => {
             <span className='fs-18 fw-6'>Go Back</span>
           </button>
           <div className='meat-details-content grid'>
-          <div className='book-details-img'>
-            <img src = {book?.cover_img} alt = "cover img" />
+          <div className='meat-details-img'>
+            <img src = {meat?.cover_img} alt = "cover img" />
           </div>
-          <div className='book-details-info'>
-            <div className='book-details-item title'>
-              <span className='fw-6 fs-24'>{book?.title}</span>
+
+          <div className='meat-details-info'>
+            <div className='meat-details-item title'>
+              <span className='fw-6 fs-24'>{meat?.title}</span>
             </div>
-            <div className='book-details-item description'>
-              <span>{book?.description}</span>
+            <div className='meat-details-item description'>
+              <span>{meat?.description}</span>
             </div>
-            <div className='book-details-item'>
-              <span className='fw-6'>Subject Places: </span>
-              <span className='text-italic'>{book?.subject_places}</span>
+            <div className='meat-details-item price'>
+              <span className='fw-6 fs-24'>{meat?.price}</span>
             </div>
+            </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default BookDetails
