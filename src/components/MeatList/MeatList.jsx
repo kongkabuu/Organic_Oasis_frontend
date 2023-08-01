@@ -2,7 +2,7 @@ import React from 'react';
 import { useGlobalContext } from '../../context.';
 import Meat from "../MeatList/Meat";
 import Loading from "../Loader/Loader";
-import "./BookList.css";
+import "./MeatList.css";
 
 
 
@@ -12,8 +12,8 @@ const MeatList = () => {
     return {
       ...singleMeat,
       // removing /works/ to get only id
-      id: (singleMeat.id).replace("/works/", ""),
-      cover_img: singleMeat.cover_id  `https://......../b/id/${singleMeat.cover_id}-L.jpg`
+     // id: (singleMeat.id).replace("/works/", ""),
+     // cover_img: singleMeat.cover_id  `https://......../b/id/${singleMeat.cover_id}-L.jpg`
     }
   });
 
