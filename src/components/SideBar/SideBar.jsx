@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SideBar.css';
+import DropdownMenu from './DropdownMenu';
 
 const Sidebar = () => {
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleToggleDropdown = () => {
+    setDropdownOpen((prevState) => !prevState);
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-title">Categories</div>
-      <ul className="sidebar-list">
+      <div className="sidebar-list">
+        <li className="sidebar-item" onClick={handleToggleDropdown}>
+          Categories
+          {isDropdownOpen && <DropdownMenu />}
+        </li>
+        {/* Add other category links directly */}
         <li className="sidebar-item">
           <Link to="/meat">Meat</Link>
         </li>
@@ -25,9 +37,9 @@ const Sidebar = () => {
         <li className="sidebar-item">
           <Link to="/spice">Spice</Link>
         </li>
-      </ul>
+      </div>
     </div>
   );
 };
 
-export default SideBar;
+export default Sidebar;
