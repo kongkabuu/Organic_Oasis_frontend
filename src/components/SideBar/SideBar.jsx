@@ -5,7 +5,7 @@ import './Sidebar.css';
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="sidebar-title">Grocery Categories</div>
+      <div className="sidebar-title">Categories</div>
       <ul className="sidebar-list">
         <li className="sidebar-item">
           <Link to="/meat">Meat</Link>

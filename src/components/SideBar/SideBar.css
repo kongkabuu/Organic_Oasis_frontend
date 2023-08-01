@@ -1,0 +1,39 @@
+.sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #f8f9fa;
+    padding: 1rem;
+  }
+
+  .sidebar-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  .sidebar-item a:hover {
+    background-color: #e9ecef;
+    border-radius: 4px;
+  }
+
+  .sidebar-item a.active {
+    background-color: #19C048;
+    color: #fff;
+  }
