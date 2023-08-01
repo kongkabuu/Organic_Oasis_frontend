@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './Assets/logo.webp';
+import logo from './images/logo.webp';
 import styled from 'styled-components';
 import { IoSearch, IoClose } from 'react-icons/io5'; // Import the icons from react-icons
 
