@@ -1,10 +1,20 @@
-import React from 'react';
-import Header from "./Components/Header";
+import Header from './Components/Header';
+import HeroBanner from './Components/HeroBanner';
+import Categories from './Components/Categories';
+import Home from './Components/Home';
+import Sellers from './Components/Sellers';
+import Footer from './Components/Footer';
+
 
 function App() {
   return (
     <div>
       <Header />
+      <HeroBanner/>
+      <Categories/>
+      <Home/>
+      <Sellers/>
+      <Footer/>
       {/* Add other components or content here */}
     </div>
   );
