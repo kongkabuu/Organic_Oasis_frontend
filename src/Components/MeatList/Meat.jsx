@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Meat.css';
+import './MeatList.css';
 
 const Meat = ({ title, price, cover_img }) => {
   return (

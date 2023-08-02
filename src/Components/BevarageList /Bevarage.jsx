@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Meat.css';
+import './BevarageList.css';
 
-const Meat = ({ title, price, cover_img }) => {
+const Bevarage = ({ title, price, cover_img }) => {
   return (
-    <div className='meat-item flex flex-column flex-sb'>
-      <div className='meat-item-img'>
+    <div className='bevarage-item flex flex-column flex-sb'>
+      <div className='bevarage-item-img'>
         <img src={cover_img} alt='cover' />
       </div>
-      <div className='meat-item-info text-center'>
-        <div className='meat-item-info-item title fw-7 fs-18'>
+      <div className='bevarage-item-info text-center'>
+        <div className='bevarage-item-info-item title fw-7 fs-18'>
           <span>{title}</span>
         </div>
-        <div className='meat-item-info-item price fs-15'>
+        <div className='bevarage-item-info-item price fs-15'>
           <span className='text-capitalize fw-7'>Total Price: </span>
           <span>{price}</span>
         </div>
@@ -22,4 +22,4 @@ const Meat = ({ title, price, cover_img }) => {
   );
 };
 
-export default Meat;
+export default Bevarage;
