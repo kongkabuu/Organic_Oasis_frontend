@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Hero from "./Assets/rezeda.jpg";
+import Hero from "./Assets/nice.avif";
 //import Hero1 from "../assets/images/min.jpg";
 
 const HeroBanner = () => {
@@ -13,7 +13,7 @@ const HeroBanner = () => {
              Bringing Organic Goodness Home.
             </h1>
             <p style={{ color: "#fff" }}>
-              Order<span style={{ color: "#19C048" }}>anywhere</span> at <span style={{ color: "#19C048" }}>anytime</span>
+              Order<span style={{ color: "#19C048" }}>Anywhere</span> at <span style={{ color: "#19C048" }}>anytime</span>
             </p>
             <p className="description">
               Checkout your favorite .

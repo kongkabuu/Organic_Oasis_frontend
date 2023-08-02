@@ -1,31 +1,57 @@
+import React from 'react';
+import styled from 'styled-components';
 
 const Categories = () => {
-  const circleStyle = {
-    width: '2cm',
-    height: '2cm',
-    backgroundColor: '#19C048',
-    borderRadius: '50%',
-    margin: '10px',
-    border: '2px solid black', // Add a black border to the circles
-  };
+  const categoriesData = [
+    { name: 'Meat', emoji: '🥩' },
+    { name: 'Beverage', emoji: '🍹' },
+    { name: 'Bakery', emoji: '🍞' },
+    { name: 'Vegetables', emoji: '🥬' },
+    { name: 'Cereals', emoji: '🍚' },
+    { name: 'Species', emoji: '🧂' },
+    { name: 'Dairy', emoji: '🧀' },
+  ];
 
-  const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-  };
+  const Circle = styled.div`
+    width: 2cm;
+    height: 2cm;
+    background-color: white;
+    border-radius: 50%;
+    margin: 75px;
+    border: 2px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    line-height: 1.5rem; /* Adjust the line height to match the font size */
+  `;
+
+  const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  `;
+
+  const CategoryName = styled.div`
+    font-weight: bold;
+    margin-top: -1.5cm;
+    margin-left: 2.5cm;
+  `;
 
   return (
     <div>
       <h1 style={{ color: '#19C048', textAlign: 'center' }}>Categories</h1>
-      <div style={containerStyle}>
-        <div style={circleStyle}></div>
-        <div style={circleStyle}></div>
-        <div style={circleStyle}></div>
-        <div style={circleStyle}></div>
-        <div style={circleStyle}></div>
-        <div style={circleStyle}></div>
-        <div style={circleStyle}></div>
-      </div>
+      <Container>
+        {categoriesData.map((category) => (
+          <div key={category.name}>
+            <Circle>{category.emoji}</Circle>
+            <CategoryName>{category.name}</CategoryName>
+          </div>
+        ))}
+      </Container>
     </div>
   );
 };
