@@ -35,6 +35,34 @@
     font-style: italic;
     font-size: 14px;
 }
+.section-title h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .section-title p {
+    font-size: 1.6rem;
+    color: var(--light-black-color);
+    margin-bottom: 3rem;
+  }
+
+  /* Styling for the "Add to Cart" button (this won't be functional) */
+  .add-to-cart-btn {
+    background-color: var(--green-color);
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #19a03e;
+  }
+
 
 @media screen and (min-width: 600px){
     .meatlist-content{
