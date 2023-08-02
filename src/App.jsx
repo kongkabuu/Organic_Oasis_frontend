@@ -37,6 +37,7 @@ function App () {
           <Route path="/fruits" component={FruitsList} />
           <Route path="/vegetables" component={VegetablesList} />
           <Route path="/spice" component={SpiceList} />
+          <Route path="/dairy" component={Dairy}/>
         </Switch>
         </Routes>
         </>
