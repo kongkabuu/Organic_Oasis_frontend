@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Routes  } from 'react-router-dom';
 import SideBar from './components/SideBar/SideBar';
 import MeatList from './components/MeatList/MeatList';
 import BeveragesList from './BeveragesList';
@@ -7,12 +7,16 @@ import BakeryList from './BakeryList';
 import FruitsList from './FruitsList';
 import VegetablesList from './VegetablesList';
 import SpiceList from './SpiceList';
+import Header from "./components/Header/Header";
+import Footer from"./components/Footer/Footer";
 import './index.css';
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="app-container">
+        <>
+        <Routes>
         <SideBar />
         <Switch>
           <Route path="/meat" component={MeatList} />
@@ -22,8 +26,11 @@ const App = () => {
           <Route path="/vegetables" component={VegetablesList} />
           <Route path="/spice" component={SpiceList} />
         </Switch>
+        </Routes>
+        </>
       </div>
-    </Router>
+      <Footer></Footer>
+    </BrowserRouter>
   );
 };
 
