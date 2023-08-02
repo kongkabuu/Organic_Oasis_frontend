@@ -1,22 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from "../Loader/Loader";
-import "./MeatDetails.css";
+import "./BevarageDetails.css";
 import {FaArrowLeft} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 
 //const URL = "https://........../works/";
 
-const MeatDetails = () => {
+const BevarageDetails = () => {
     const {id} = useParams();
     const [loading, setLoading] = useState(false);
-    const [meat, setMeat] = useState(null);
+    const [bevarage, setBevarage] = useState(null);
     const navigate = useNavigate();
 
 
     useEffect(() => {
         setLoading(true);
-        async function getMeatDetails(){
+        async function getBevarageDetails(){
           try{
             const response = await fetch(`${URL}${id}.json`);
             const data = await response.json();
@@ -24,48 +24,48 @@ const MeatDetails = () => {
 
             if(data){
                 const {description, title, covers, price} = data;
-                const newMeat = {
+                const newBevarage = {
                   description: description ? description.value : "No description found",
                   title: title,
                   cover_img: covers, // `https://..............${covers[0]}-L.jpg`
                   price: price
                 };
-                setMeat(newMeat);
+                setBevarage(newBevarage);
             } else {
-              setMeat(null);
+            Bevarage(null);
             }
             setLoading(false);
           } catch(error){
             console.log(error);
-            setLoading(false);
+            setLoading(false);                 Bevarage
           }
         }
-        getMeatDetails();
+        getBevarageDetails();
     }, [id]);
 
     if(loading) return <Loading />;
 
     return (
-      <section className='meat-details'>
+      <section className='bevarage-details'>
         <div className='container'>
           <button type='button' className='flex flex-c back-btn' onClick={() => navigate("/meat")}>
             <FaArrowLeft size = {22} />
             <span className='fs-18 fw-6'>Go Back</span>
           </button>
-          <div className='meat-details-content grid'>
-          <div className='meat-details-img'>
-            <img src = {meat?.cover_img} alt = "cover img" />
+          <div className='bevarage-details-content grid'>
+          <div className='bevarage-details-img'>
+            <img src = {bevarage?.cover_img} alt = "cover img" />
           </div>
 
-          <div className='meat-details-info'>
-            <div className='meat-details-item title'>
-              <span className='fw-6 fs-24'>{meat?.title}</span>
+          <div className='bevarage-details-info'>
+            <div className='bevarage-details-item title'>
+              <span className='fw-6 fs-24'>{bevarage?.title}</span>
             </div>
-            <div className='meat-details-item description'>
-              <span>{meat?.description}</span>
+            <div className='bevarage-details-item description'>
+              <span>{bevarage?.description}</span>
             </div>
-            <div className='meat-details-item price'>
-              <span className='fw-6 fs-24'>{meat?.price}</span>
+            <div className='bevarage-details-item price'>
+              <span className='fw-6 fs-24'>{bevarage?.price}</span>
             </div>
             </div>
         </div>
@@ -74,4 +74,4 @@ const MeatDetails = () => {
   )
 }
 
-export default MeatDetails
+export default BevarageDetails

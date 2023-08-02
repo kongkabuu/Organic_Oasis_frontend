@@ -8,7 +8,7 @@ const Bevarage = ({ title, price, cover_img }) => {
       <div className='bevarage-item-img'>
         <img src={cover_img} alt='cover' />
       </div>
-      <div className='bevarage-item-info text-center'>
+      <div className='bevarage -item-info text-center'>
         <div className='bevarage-item-info-item title fw-7 fs-18'>
           <span>{title}</span>
         </div>

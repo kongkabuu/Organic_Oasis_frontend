@@ -35,8 +35,8 @@ const BevarageList = () => {
           </p>
         </div>
         <div className='bevaragelist-content grid'>
-          {meatData.map((item) => (
-            <Meat key={item.id} {...item} />
+          {bevarageData.map((item) => (
+            <Bevarage key={item.id} {...item} />
           ))}
         </div>
       </div>
