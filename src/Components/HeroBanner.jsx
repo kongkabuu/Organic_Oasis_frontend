@@ -18,7 +18,7 @@ const HeroBanner = () => {
             <p className="description">
               Checkout your favorite .
             </p>
-            
+
           </div>
 
         </div>
@@ -91,7 +91,7 @@ const Section = styled.section`
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: center center;
-   
+
     height: max-content;
     .overlay {
       .container {

@@ -1,20 +1,32 @@
-import React from 'react';
+
 import { BrowserRouter, Switch, Route, Routes  } from 'react-router-dom';
-import SideBar from './components/SideBar/SideBar';
-import MeatList from './components/MeatList/MeatList';
+import Header from './Components/Header';
+import HeroBanner from './Components/HeroBanner';
+import Categories from './Components/Categories';
+import Home from './Components/Home';
+import Sellers from './Components/Sellers';
+import Footer from './Components/Footer';
+ // Categories
+import SideBar from './Components/SideBar/SideBar';
+import MeatList from './Components/MeatList/MeatList';
 import BeveragesList from './BeveragesList';
 import BakeryList from './BakeryList';
 import FruitsList from './FruitsList';
 import VegetablesList from './VegetablesList';
 import SpiceList from './SpiceList';
-import Header from "./components/Header/Header";
-import Footer from"./components/Footer/Footer";
 import './index.css';
 
-const App = () => {
+function App () {
   return (
     <BrowserRouter>
       <div className="app-container">
+      <div>
+      <Header />
+      <HeroBanner/>
+      <Categories/>
+      <Home/>
+      <Sellers/>
+    </div>
         <>
         <Routes>
         <SideBar />
@@ -32,6 +44,16 @@ const App = () => {
       <Footer></Footer>
     </BrowserRouter>
   );
+
+    <div>
+      <Header />
+      <HeroBanner/>
+      <Categories/>
+      <Home/>
+      <Sellers/>
+      <Footer/>
+      {/* Add other components or content here */}
+    </div>
 };
 
 export default App;
