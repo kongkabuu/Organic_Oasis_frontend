@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  root: './src/App.jsx', // Set the root directory for your project (where the index.jsx file is located)
+  root: './src/index.jsx', // Set the root directory for your project (where the index.jsx file is located)
 });
