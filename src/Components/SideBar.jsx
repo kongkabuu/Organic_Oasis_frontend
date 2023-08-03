@@ -27,10 +27,10 @@ const Sidebar = () => {
           <Link to="/bakery">Bakery</Link>
         </li>
         <li className="sidebar-item">
-          <Link to="/fruits">Fruits</Link>
+          <Link to="/fruits">Fruits and Veggies </Link>
         </li>
         <li className="sidebar-item">
-          <Link to="/vegetables">Vegetables</Link>
+          <Link to="/cereals">Cereals</Link>
         </li>
         <li className="sidebar-item">
           <Link to="/spice">Spice</Link>

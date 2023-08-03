@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Hero from "./Assets/rezeda.jpg";
+import Hero from "../Assets/rezeda.jpg";
 //import Hero1 from "../assets/images/min.jpg";
 
 const HeroBanner = () => {

@@ -1,5 +1,4 @@
-
-import { BrowserRouter, Switch, Route, Routes  } from 'react-router-dom';
+import { BrowserRouter, Route, Routes,  } from 'react-router-dom';
 import Header from './Components/Header';
 import HeroBanner from './Components/HeroBanner';
 import Categories from './Components/Categories';
@@ -8,7 +7,7 @@ import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
  // Categories
 import SideBar from './Components/SideBar';
-import BeverageList from './Components/BeverageList';
+import BevarageList from './Components/BevarageList.jsx';
 import './index.css';
 
 function App () {
@@ -25,14 +24,14 @@ function App () {
         <>
         <Routes>
         <SideBar />
-        <Switch>
-          <Route path="/beverage" component={BeverageList} />
-        </Switch>
+
+          <Route path="/beverage" component={BevarageList} />
+
         </Routes>
         </>
       </div>
       <Footer></Footer>
-    </BrowserRouter>
+     </BrowserRouter>
   );
 
 
