@@ -1,0 +1,59 @@
+/* General styles for the app container */
+div {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 190px;
+}
+
+/* Styles for available products section */
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the cart section */
+ul:last-child {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styles for individual cart items */
+ul:last-child li {
+  padding: 10px;
+}
+
+/* Total price display */
+p {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10px;
+}
