@@ -17,24 +17,11 @@ const Sidebar = () => {
           Categories
           {isDropdownOpen}
         </li>
-        <li className="sidebar-item">
-          <Link to="/meat">Meat</Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/beverages">Beverages</Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/bakery">Bakery</Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/fruits">Fruits and Veggies </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/cereals">Cereals</Link>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/spice">Spice</Link>
-        </li>
+        {categoriesData.map((category) => (
+          <li className="sidebar-item" key={category.name}>
+            <Link to={`/${category.name.toLowerCase()}`}>{category.name}</Link>
+          </li>
+        ))}
       </div>
     </div>
   );

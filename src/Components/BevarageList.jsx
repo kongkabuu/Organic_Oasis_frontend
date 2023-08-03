@@ -94,31 +94,35 @@ const Bevarage = ({ title, price, cover_img }) => {
   );
 };
 
-const BevarageList = () => {
-    const bevarageData = [
-      {
-        id: 1,
-        title: 'Juice',
-        price: '$10.99',
-        cover_img: 'https://via.placeholder.com/180', // Placeholder image URL
-      },
-      {
-        id: 2,
-        title: 'Water',
-        price: '$8.99',
-        cover_img: 'https://i.pinimg.com/564x/fd/13/69/fd13698867e26a123d1bb5150436306f.jpg', // Placeholder image URL
-      },
-      {
-        id: 3,
-        title: 'Wine',
-        price: '$12.99',
-        cover_img: 'https://via.placeholder.com/180', // Placeholder image URL
-      },
-    ];
 
-    return (
-      <section className='bevaragelist'>
-        <div className='container'>
+const BevarageList = ({ categoryName }) => {
+  const [bevarageData, setBevarageData] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    async function fetchBevarageData() {
+      try {
+        const response = await fetch(
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryName}`
+        );
+        const data = await response.json();
+        console.log(data);
+        setBevarageData(data.drinks || []);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setBevarageData([]);
+        setLoading(false);
+      }
+    }
+    fetchBevarageData();
+  }, [categoryName]);
+
+
+
+  return (
+    <section className="bevaragelist">
+       <div className='container'>
           <div className='section-title'>
             <h2>Beverage Products</h2>
             <p>
@@ -131,8 +135,8 @@ const BevarageList = () => {
             ))}
           </div>
         </div>
-      </section>
-    );
-   };
+    </section>
+  );
+};
 
 export default BevarageDetails;

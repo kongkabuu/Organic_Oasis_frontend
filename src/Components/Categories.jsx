@@ -41,21 +41,24 @@ const Categories = () => {
     margin-top: -1.5cm;
     margin-left: 2.5cm;
   `;
+
   return (
     <div>
       <h1 style={{ color: '#19C048', textAlign: 'center' }}>Categories</h1>
       <Container>
         {categoriesData.map((category) => (
-          <Link key={category.name} to={`/${category.name.toLowerCase()}`}>
-            <div>
+          <div key={category.name}>
+            {/* Use Link component to create the category links */}
+            <Link to={`/${category.name.toLowerCase()}`}>
               <Circle>{category.emoji}</Circle>
               <CategoryName>{category.name}</CategoryName>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </Container>
     </div>
   );
 };
+
 
 export default Categories;

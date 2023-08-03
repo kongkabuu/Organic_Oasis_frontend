@@ -24,9 +24,10 @@ function App () {
         <>
         <Routes>
         <SideBar />
-
-          <Route path="/beverage" component={BevarageList} />
-
+        <Route
+          path="/:categoryName"
+          render={({ match }) => <BevarageList categoryName={match.params.categoryName} />}
+          />
         </Routes>
         </>
       </div>
