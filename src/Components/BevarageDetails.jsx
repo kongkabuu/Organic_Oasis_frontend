@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './BevarageList.css';
 import { FaArrowLeft } from 'react-icons/fa';
+import Loader from './Loader';
+
 
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='; // Updated API URL
 
-const Loading = () => {
-  return <div>Loading...</div>;
-};
 
 const BevarageDetails = () => {
   const { id } = useParams();
@@ -19,7 +18,9 @@ const BevarageDetails = () => {
     setLoading(true);
     async function getBevarageDetails() {
       try {
-        const response = await fetch(`${URL}${id}`);
+        const response = await fetch(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`
+          );
         const data = await response.json();
         console.log(data);
 
@@ -46,7 +47,7 @@ const BevarageDetails = () => {
     getBevarageDetails();
   }, [id]);
 
-  if (loading) return <Loading />;
+  if (loading) return <Loader />;
 
   return (
     <section className='bevarage-details'>
@@ -77,3 +78,5 @@ const BevarageDetails = () => {
     </section>
   );
 };
+
+export default BevarageDetails;
