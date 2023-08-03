@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import rezeda from './Assets/rezeda.jpg';
+import Sellers from './Sellers';
 
 const HomeContainer = styled.div`
   text-align: center;
