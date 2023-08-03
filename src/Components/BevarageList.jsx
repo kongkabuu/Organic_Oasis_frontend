@@ -47,7 +47,7 @@ const BevarageDetails = () => {
   return (
     <section className='bevarage-details'>
       <div className='container'>
-        <button type='button' className='flex flex-c back-btn' onClick={() => navigate('/meat')}>
+        <button type='button' className='flex flex-c back-btn' onClick={() => navigate('/beverage')}>
           <FaArrowLeft size={22} />
           <span className='fs-18 fw-6'>Go Back</span>
         </button>
@@ -120,10 +120,9 @@ const BevarageList = () => {
       <section className='bevaragelist'>
         <div className='container'>
           <div className='section-title'>
-            <h2>Bevarage Products</h2>
+            <h2>Beverage Products</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut
-              perspiciatis unde omnis iste natus error sit voluptatem.
+             Below are our available products
             </p>
           </div>
           <div className='bevaragelist-content grid'>
