@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SideBar.css';
-import DropdownMenu from './DropdownMenu';
 
 const Sidebar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -16,9 +15,8 @@ const Sidebar = () => {
       <div className="sidebar-list">
         <li className="sidebar-item" onClick={handleToggleDropdown}>
           Categories
-          {isDropdownOpen && <DropdownMenu />}
+          {isDropdownOpen}
         </li>
-        {/* Add other category links directly */}
         <li className="sidebar-item">
           <Link to="/meat">Meat</Link>
         </li>

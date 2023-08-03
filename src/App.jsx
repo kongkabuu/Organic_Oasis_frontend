@@ -7,13 +7,8 @@ import Home from './Components/Home';
 import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
  // Categories
-import SideBar from './Components/SideBar/SideBar';
-import MeatList from './Components/MeatList/MeatList';
-import BeveragesList from './BeveragesList';
-import BakeryList from './BakeryList';
-import FruitsList from './FruitsList';
-import VegetablesList from './VegetablesList';
-import SpiceList from './SpiceList';
+import SideBar from './Components/SideBar';
+import BeverageList from './Components/BeverageList';
 import './index.css';
 
 function App () {
@@ -31,13 +26,7 @@ function App () {
         <Routes>
         <SideBar />
         <Switch>
-          <Route path="/meat" component={MeatList} />
-          <Route path="/beverages" component={BeveragesList} />
-          <Route path="/bakery" component={BakeryList} />
-          <Route path="/fruits" component={FruitsList} />
-          <Route path="/vegetables" component={VegetablesList} />
-          <Route path="/spice" component={SpiceList} />
-          <Route path="/dairy" component={Dairy}/>
+          <Route path="/beverage" component={BeverageList} />
         </Switch>
         </Routes>
         </>
@@ -46,15 +35,7 @@ function App () {
     </BrowserRouter>
   );
 
-    <div>
-      <Header />
-      <HeroBanner/>
-      <Categories/>
-      <Home/>
-      <Sellers/>
-      <Footer/>
-      {/* Add other components or content here */}
-    </div>
+
 };
 
 export default App;
