@@ -6,8 +6,8 @@ import { useState } from "react";
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    email: " ",
-    password: " ",
+    email: "",
+    password: "",
   });
 
   function handleChange(event) {
@@ -18,19 +18,43 @@ export default function Login() {
       };
     });
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    // Perform the login using the fetch request
+    fetch("http://127.0.0.1:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response data here, such as setting authentication state
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the fetch
+        console.error("Error:", error);
+      });
+  }
   return (
     <>
       <div className="container">
         <div className="login-details">
-          <form>
+          <h1>Welcome, login here</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email:</label>
             <input
               type="text"
-              placeholder="email"
+              placeholder="Enter your email"
               onChange={handleChange}
               name="email"
               value={formData.email}
             />
-
+            <label htmlFor="password">Password:</label>
             <input
               type="text"
               placeholder="password"
@@ -38,6 +62,7 @@ export default function Login() {
               name="password"
               value={formData.password}
             />
+            <button className="login-button">Login in</button>
           </form>
 
           <div>
