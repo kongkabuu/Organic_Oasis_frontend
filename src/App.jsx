@@ -22,12 +22,12 @@ function App () {
       <Sellers/>
     </div>
         <>
-        <Routes>
         <SideBar />
-        <Route
-          path="/:categoryName"
-          render={({ match }) => <BevarageList categoryName={match.params.categoryName} />}
-          />
+        <Routes>
+
+        <Route path="/beverage" element={<BevarageList />} />
+
+
         </Routes>
         </>
       </div>

@@ -48,8 +48,7 @@ const Categories = () => {
       <Container>
         {categoriesData.map((category) => (
           <div key={category.name}>
-            {/* Use Link component to create the category links */}
-            <Link to={`/${category.name.toLowerCase()}`}>
+            <Link to={`/${category.name.toLowerCase()}`} style={{ textDecoration: 'none' }}>
               <Circle>{category.emoji}</Circle>
               <CategoryName>{category.name}</CategoryName>
             </Link>

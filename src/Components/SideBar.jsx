@@ -8,23 +8,45 @@ const Sidebar = () => {
   const handleToggleDropdown = () => {
     setDropdownOpen((prevState) => !prevState);
   };
-
   return (
     <div className="sidebar">
       <div className="sidebar-title">Categories</div>
       <div className="sidebar-list">
         <li className="sidebar-item" onClick={handleToggleDropdown}>
-          Categories
-          {isDropdownOpen}
+          Categories {isDropdownOpen ? '▲' : '▼'}
         </li>
-        {categoriesData.map((category) => (
-          <li className="sidebar-item" key={category.name}>
-            <Link to={`/${category.name.toLowerCase()}`}>{category.name}</Link>
-          </li>
-        ))}
+        {isDropdownOpen && (
+          <>
+            <li className="sidebar-item">
+              <Link to="/meat">Meat</Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="/beverage">Beverages</Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="/bakery">Bakery</Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="/vegetables">Vegetables</Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="/cereals">Cereals</Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="/species">Species</Link>
+            </li>
+            <li className="sidebar-item">
+              <Link to="/dairy">Dairy</Link>
+            </li>
+          </>
+        )}
+        <li className="sidebar-item" onClick={() => setDropdownOpen(false)}>
+          <Link to="/">Go Back</Link>
+        </li>
       </div>
     </div>
   );
 };
+
 
 export default Sidebar;

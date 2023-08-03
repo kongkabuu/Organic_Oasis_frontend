@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './BevarageList.css';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='; // Updated API URL
+
+const Loading = () => {
+  return <div>Loading...</div>;
+};
 
 const BevarageDetails = () => {
   const { id } = useParams();
@@ -97,6 +101,8 @@ const Bevarage = ({ title, price, cover_img }) => {
 
 const BevarageList = ({ categoryName }) => {
   const [bevarageData, setBevarageData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -118,7 +124,7 @@ const BevarageList = ({ categoryName }) => {
     fetchBevarageData();
   }, [categoryName]);
 
-
+if (loading) return <Loading />;
 
   return (
     <section className="bevaragelist">
