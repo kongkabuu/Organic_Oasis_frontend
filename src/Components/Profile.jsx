@@ -1,93 +1,124 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { LoadingButton } from '@mui/lab';
+import { Avatar } from '@mui/material';
 
-const AvatarImage = styled.img`
+const ProfileContainer = styled.div`
+  position: relative;
+`;
+
+const ProfileAvatar = styled(Avatar)`
+  width: 100px;
+  height: 100px;
+  background-color: #19C048;
   cursor: pointer;
+  border: 2px solid #19C048; /* Add a border with the same color as the background */
 `;
 
-const FormContainer = styled.div`
-  display: ${props => (props.showForm ? 'block' : 'none')};
-`;
-
-const Form = styled.form`
-  width: 300px;
-  margin: 20px auto;
+const PopUpForm = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 100;
 `;
 
-const FormGroup = styled.div`
+const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
 `;
 
-const Label = styled.label`
-  font-weight: bold;
-  margin-bottom: 5px;
+const SubmitButton = styled(LoadingButton)`
+  background-color: #19C048; /* Use the specified color code for the buttons */
+  color: #fff; /* Set text color to white */
+  &:hover {
+    background-color: #05E086;
+  }
 `;
 
-const Input = styled.input`
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
-const SubmitButton = styled.button`
-  padding: 8px 15px;
-  background-color: #19C048;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+const CloseButton = styled(LoadingButton)`
+  background-color: #19C048; /* Use the specified color code for the buttons */
+  color: #fff; /* Set text color to white */
+  margin-right: 10px;
+  &:hover {
+    background-color: #05E086;
+  }
 `;
 
 const Profile = () => {
-  const [showForm, setShowForm] = useState(false);
-
-  const handleAvatarClick = () => {
-    setShowForm(!showForm);
+  const [isEditing, setIsEditing] = useState(false);
+  const user = {
+    firstname: "Lenny",
+    lastname: "Ngetich",
+    phonenumber: "0710200602",
+    email: "lennyngetich4@gmail.com",
+    password: "",
+    password_confirmation: "",
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Implement your form submission logic here
-    // You can use the form data (name, location, email, phone number) to update the buyer's profile
-    // For example, you can use an API call to update the user's profile information on the server
+  const handleEditProfileClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleAvatarClick = () => {
+    setIsEditing(true);
   };
 
   return (
-    <div>
-      <AvatarImage
-        src="path_to_your_avatar_image.jpg"
-        alt="Buyer Avatar"
-        onClick={handleAvatarClick}
-      />
-      <FormContainer showForm={showForm}>
-        <Form onSubmit={handleSubmit}>
-          <FormGroup>
-            <Label htmlFor="name">Name:</Label>
-            <Input type="text" id="name" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="location">Location:</Label>
-            <Input type="text" id="location" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="email">Email:</Label>
-            <Input type="email" id="email" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="phone">Phone Number:</Label>
-            <Input type="tel" id="phone" required />
-          </FormGroup>
-          {/* Add more fields or any other information you want to include in the form */}
-          <SubmitButton type="submit">Save</SubmitButton>
-        </Form>
-      </FormContainer>
-    </div>
+    <ProfileContainer>
+      <ProfileAvatar onClick={handleAvatarClick} /> {/* Render the Avatar component */}
+      {isEditing && (
+        <PopUpForm>
+          <InputGroup>
+            <label>First Name</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Last Name</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Phone Number</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Email</label>
+            <input type="email" />
+          </InputGroup>
+          <InputGroup>
+            <label>Location</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Password</label>
+            <input type="password" />
+          </InputGroup>
+          {/* Add other input fields as needed */}
+          <div>
+            <SubmitButton onClick={() => setIsEditing(false)}>Submit</SubmitButton>
+            <CloseButton onClick={() => setIsEditing(false)}>Close</CloseButton>
+          </div>
+        </PopUpForm>
+      )}
+    </ProfileContainer>
   );
 };
 

@@ -5,7 +5,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import Loader from './Loader';
 
 
-const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='; // Updated API URL
+const URL = 'http://127.0.0.1:3002/products'; // Updated API URL
 
 
 const BevarageDetails = () => {
@@ -18,11 +18,10 @@ const BevarageDetails = () => {
     setLoading(true);
     async function getBevarageDetails() {
       try {
-        const response = await fetch(
-          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`
-          );
+        const response = await fetch(`URL${id}`);
         const data = await response.json();
         console.log(data);
+
 
         if (data && data.drinks && data.drinks.length > 0) {
           const drink = data.drinks[0];

@@ -3,10 +3,11 @@ import {  useNavigate } from 'react-router-dom';
 import './BevarageList.css';
 import Loader from './Loader';
 
-const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='; // Updated API URL
+const URL = 'http://127.0.0.1:3002/products'; // Updated API URL
 
 
-const Bevarage = ({ title, price, cover_img }) => {
+const Bevarage = ({ title, price, cover_img ,id}) => {
+  if (loading) return <Loader />;
   return (
     <div className='bevarage-item flex flex-column flex-sb'>
       <div className='bevarage-item-img'>
@@ -30,13 +31,14 @@ const BevarageList = ({ categoryName }) => {
   const [bevarageData, setBevarageData] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  console.log(bevarageData)
 
   useEffect(() => {
     setLoading(true);
     async function fetchBevarageData() {
       try {
         const response = await fetch(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${categoryName}`
+          `http://127.0.0.1:3002/products/${categoryName}`
         );
         const data = await response.json();
         console.log(data);
