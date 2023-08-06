@@ -8,8 +8,8 @@ import Categories from './Components/Categories';
 import Footer from './Components/Footer';
 import HomeWithSellers from './Components/HomeWithSellers';
  // Categories
- import MeatList from './Components/Meat';
- import MeatDetails from './Components/Meat';
+ import MeatList from './Components/MeatList';
+ import MeatDetails from './Components/MeatDetails';
  import DairyList from './Components/Dairy';
  import DairyDetails from './Components/Dairy';
 
