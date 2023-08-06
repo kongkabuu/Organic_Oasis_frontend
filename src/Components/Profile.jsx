@@ -1,93 +1,134 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { LoadingButton } from '@mui/lab';
+import { Avatar, Box, Container, Grid, TextField, Typography } from '@mui/material';
+import { FormikProvider, useFormik } from 'formik';
 
-const AvatarImage = styled.img`
+const ProfileContainer = styled.div`
+  position: relative;
+`;
+
+const ProfileAvatar = styled(Avatar)`
+  width: 100px;
+  height: 100px;
+  background-color: #19C048;
   cursor: pointer;
 `;
 
-const FormContainer = styled.div`
-  display: ${props => (props.showForm ? 'block' : 'none')};
-`;
-
-const Form = styled.form`
-  width: 300px;
-  margin: 20px auto;
+const PopUpForm = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 100;
 `;
 
-const FormGroup = styled.div`
+const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
 `;
 
-const Label = styled.label`
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
-const Input = styled.input`
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
-const SubmitButton = styled.button`
-  padding: 8px 15px;
-  background-color: #19C048;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+const SubmitButton = styled(LoadingButton)`
+  background-color: #15B76C;
+  &:hover {
+    background-color: #05E086;
+  }
 `;
 
 const Profile = () => {
-  const [showForm, setShowForm] = useState(false);
-
-  const handleAvatarClick = () => {
-    setShowForm(!showForm);
+  const [isEditing, setIsEditing] = useState(false);
+  const user = {
+    firstname: "Lenny",
+    lastname: "Ngetich",
+    phonenumber: "0710200602",
+    email: "lennyngetich4@gmail.com",
+    password: "",
+    password_confirmation: "",
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Implement your form submission logic here
-    // You can use the form data (name, location, email, phone number) to update the buyer's profile
-    // For example, you can use an API call to update the user's profile information on the server
+  const formik = useFormik({
+    enableReinitialize: true,
+    initialValues: {
+      firstname: user?.firstname ? user.firstname : '',
+      lastname: user?.lastname ? user.lastname : '',
+      username: user?.username ? user.username : '',
+      phonenumber: user?.phonenumber ? user.phonenumber : '',
+      email: user?.email ? user.email : '',
+      password: user?.password ? user.password : '',
+      password_confirmation: user?.password_confirmation ? user.password_confirmation : '',
+    },
+    onSubmit: async (values) => {
+      console.log(values);
+      setIsEditing(false);
+      try {
+        const response = await fetch(`https://tuneflow-gpsc.onrender.com/users/${user.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+        if (response.ok) {
+          // Update the user information on the frontend if needed
+          // ...
+          setIsEditing(false);
+          console.log('Profile updated successfully!');
+        } else {
+          console.log('Failed to update profile.');
+        }
+      } catch (error) {
+        console.log('Error:', error);
+      }
+    },
+  });
+
+  const handleEditProfileClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleAvatarClick = () => {
+    setIsEditing(true);
   };
 
   return (
-    <div>
-      <AvatarImage
-        src="path_to_your_avatar_image.jpg"
-        alt="Buyer Avatar"
-        onClick={handleAvatarClick}
-      />
-      <FormContainer showForm={showForm}>
-        <Form onSubmit={handleSubmit}>
-          <FormGroup>
-            <Label htmlFor="name">Name:</Label>
-            <Input type="text" id="name" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="location">Location:</Label>
-            <Input type="text" id="location" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="email">Email:</Label>
-            <Input type="email" id="email" required />
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="phone">Phone Number:</Label>
-            <Input type="tel" id="phone" required />
-          </FormGroup>
-          {/* Add more fields or any other information you want to include in the form */}
-          <SubmitButton type="submit">Save</SubmitButton>
-        </Form>
-      </FormContainer>
-    </div>
+    <ProfileContainer>
+      <Container component="main" maxWidth="xs">
+        {/* Rest of the code... */}
+      </Container>
+
+      {isEditing && (
+        <PopUpForm>
+          <InputGroup>
+            <label>Full Name</label>
+            <input type="text" />
+          </InputGroup>
+          {/* Add other input fields for Address, Phone number, Email, Item, Description, Quantity, Price, Shipping Cost, and Tax */}
+          {/* ... (rest of the code) */}
+          <div>
+            <SubmitButton onClick={() => setIsEditing(false)}>Submit</SubmitButton>
+            <SubmitButton onClick={() => setIsEditing(false)}>Close</SubmitButton>
+          </div>
+        </PopUpForm>
+      )}
+    </ProfileContainer>
   );
 };
 

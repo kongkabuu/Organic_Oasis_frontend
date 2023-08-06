@@ -8,7 +8,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import rezeda from './Assets/rezeda.jpg';
-import Sellers from './Sellers';
 
 const HomeContainer = styled.div`
   text-align: center;
@@ -28,7 +27,7 @@ const CardContainer = styled(Card)`
 `;
 
 const CardImage = styled(CardMedia)`
-  height: 75%; /* Change the height to 75% of the card height */
+  height: 75%;
   object-fit: cover;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -45,6 +44,7 @@ const IconContainer = styled.div`
   display: flex;
   align-items: center;
   margin-right: 5px;
+  transform: translateY(-0.3cm);
 `;
 
 const ActionButton = styled(Button)`
@@ -62,8 +62,20 @@ const PercentageText = styled.span`
   margin-left: 5px;
 `;
 
+const CardRow = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+const CardColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 100px; 
+`;
+
 export default function Home() {
-  // Sample data for 8 cards (replace with your actual data)
+  // Sample data for 6 cards (replace with your actual data)
   const featuredProducts = [
     { id: 1, name: 'Product 1', image: rezeda, likes: 95 },
     { id: 2, name: 'Product 2', image: rezeda, likes: 85 },
@@ -71,35 +83,37 @@ export default function Home() {
     { id: 4, name: 'Product 4', image: rezeda, likes: 92 },
     { id: 5, name: 'Product 5', image: rezeda, likes: 89 },
     { id: 6, name: 'Product 6', image: rezeda, likes: 88 },
-    { id: 7, name: 'Product 7', image: rezeda, likes: 93 },
-    { id: 8, name: 'Product 8', image: rezeda, likes: 86 },
   ];
 
   return (
     <HomeContainer>
       <FeaturedProductsText>Featured Products</FeaturedProductsText>
       <div>
-        {featuredProducts.map((product) => (
-          <CardContainer key={product.id}>
-            <CardImage component="img" alt={product.name} image={product.image} />
-            <CardContent>
-              <CardName gutterBottom variant="h5" component="div">
-                {product.name}
-              </CardName>
-              <IconContainer>
-                <ThumbUpAltOutlinedIcon />
-                <PercentageText>{product.likes}%</PercentageText>
-              </IconContainer>
-            </CardContent>
-            <CardActions>
-  <IconContainer>
-    <ThumbUpAltOutlinedIcon />
-    <PercentageText>{product.likes}%</PercentageText>
-  </IconContainer>
-  <Button size="small">➕</Button>
-</CardActions>
-
-          </CardContainer>
+        {[0, 1].map((rowIndex) => (
+          <CardRow key={rowIndex}>
+            {[0, 1, 2].map((colIndex) => (
+              <CardColumn key={colIndex}>
+                <CardContainer>
+                  <CardImage component="img" alt={featuredProducts[rowIndex * 3 + colIndex].name} image={featuredProducts[rowIndex * 3 + colIndex].image} />
+                  <CardContent>
+                    <CardName gutterBottom variant="h5" component="div">
+                      {featuredProducts[rowIndex * 3 + colIndex].name}
+                    </CardName>
+                    <IconContainer>
+                      <ThumbUpAltOutlinedIcon />
+                      <PercentageText>{featuredProducts[rowIndex * 3 + colIndex].likes}%</PercentageText>
+                    </IconContainer>
+                  </CardContent>
+                  <CardActions>
+                    <ActionButton>
+                      <ThumbUpAltOutlinedIcon />
+                    </ActionButton>
+                    <Button size="small">➕</Button>
+                  </CardActions>
+                </CardContainer>
+              </CardColumn>
+            ))}
+          </CardRow>
         ))}
       </div>
     </HomeContainer>

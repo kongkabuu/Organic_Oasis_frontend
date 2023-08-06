@@ -34,7 +34,7 @@ const SearchButton = styled.button`
 `;
 
 const CartIconWrapper = styled.div`
-  margin-left: 2cm; /* Set the margin-left to 5cm to move the cart icon to the left */
+  margin-left: 5cm; /* Set the margin-left to 5cm to move the cart icon to the left */
 `;
 
 

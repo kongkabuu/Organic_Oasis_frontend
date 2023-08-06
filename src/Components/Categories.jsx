@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Categories = () => {
+  // Categories data with emojis
   const categoriesData = [
     { name: 'Meat', emoji: '🥩' },
     { name: 'Beverage', emoji: '🍹' },
@@ -12,6 +13,7 @@ const Categories = () => {
     { name: 'Dairy', emoji: '🧀' },
   ];
 
+  // Styled Circle component
   const Circle = styled.div`
     width: 2cm;
     height: 2cm;
@@ -28,6 +30,7 @@ const Categories = () => {
     line-height: 1.5rem; /* Adjust the line height to match the font size */
   `;
 
+  // Styled Container component
   const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -35,10 +38,12 @@ const Categories = () => {
     flex-wrap: wrap;
   `;
 
+  // Styled CategoryName component
   const CategoryName = styled.div`
     font-weight: bold;
-    margin-top: -1.5cm;
-    margin-left: 2.5cm;
+      margin-top: 1.5cm; /* Move up by 1 cm */
+    margin-left: 1.4cm; /* Move to the right by 1 cm */
+    transform: translate(1cm, -1cm); /* Apply the translation */
   `;
 
   return (

@@ -16,7 +16,7 @@ const HeroBanner = () => {
               Order<span style={{ color: "#19C048" }}>Anywhere</span> at <span style={{ color: "#19C048" }}>anytime</span>
             </p>
             <p className="description">
-              Checkout your favorite .
+              .
             </p>
             
           </div>

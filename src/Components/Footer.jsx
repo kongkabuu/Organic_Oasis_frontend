@@ -65,6 +65,10 @@ const SocialIcon = styled.a`
   }
 `;
 
+const Emoji = styled.span`
+  font-size: 1.2rem;
+`;
+
 const EmailSection = styled.div`
   display: flex;
   align-items: center;
@@ -83,31 +87,50 @@ const EmailInput = styled.input`
   }
 `;
 
+const SubscribeButton = styled.button`
+  background-color: #19c048;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterContent>
         <Column>
-          <Heading>Contact Us</Heading>
-          <Text>Email: contact@example.com</Text>
+          <Heading>Organic Oasis</Heading>
+          <Text>Email: contact@oasis.com</Text>
           <Text>Phone: +1 (123) 456-7890</Text>
-          <Text>Address: 123 Main St, City, Country</Text>
+          <Text>Address: 254 Main , Nairobi, Kenya</Text>
         </Column>
         <Column>
           <Heading>Follow Us</Heading>
           <SocialIcons>
-            <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></SocialIcon>
-            <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></SocialIcon>
-            <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></SocialIcon>
-            <SocialIcon href="#" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></SocialIcon>
+            <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
+              <Emoji role="img" aria-label="Facebook">ⓕ</Emoji>
+            </SocialIcon>
+            <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
+              <Emoji role="img" aria-label="Twitter">ⓧ</Emoji>
+            </SocialIcon>
+            <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
+              <Emoji role="img" aria-label="Instagram">
+ⓖ</Emoji>
+            </SocialIcon>
+            <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
+              <Emoji role="img" aria-label="LinkedIn">
+</Emoji>
+            </SocialIcon>
           </SocialIcons>
         </Column>
         <Column>
-          <Heading>Newsletter</Heading>
-          <Text>Subscribe to our newsletter for the latest updates and offers.</Text>
+          <Heading>Express dispatches</Heading>
+          <Text>Subscribe for latest Offers & Discounts.</Text>
           <EmailSection>
             <EmailInput type="email" placeholder="Your Email Address" />
-            <button>Subscribe</button>
+            <SubscribeButton>Subscribe</SubscribeButton>
           </EmailSection>
         </Column>
       </FooterContent>

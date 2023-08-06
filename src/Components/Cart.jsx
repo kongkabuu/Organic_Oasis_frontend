@@ -14,6 +14,7 @@ const RoundedButton = styled.button`
   color: white;
   font-size: 18px;
   cursor: pointer;
+  transform: translateX(-4cm); /* Move 4cm to the left */
 `;
 
 const AddCartButton = () => {
