@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import wImage from './Assets/w.jpg';
-import gImage from './Assets/g.jpeg';
-import bImage from './Assets/b.jpg';
+import wImage from '../Assets/w.jpg';
+import gImage from '../Assets/g.jpeg';
+import bImage from '../Assets/b.jpg';
 
 const SellersContainer = styled.div`
   position: relative;

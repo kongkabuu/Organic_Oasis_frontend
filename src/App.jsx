@@ -7,8 +7,7 @@ import Home from './Components/Home';
 import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
  // Categories
-import BevarageList from './Components/BevarageList.jsx';
-import BevarageDetails from './Components/BevarageDetails.jsx';
+
 import './index.css';
 
 function App () {
@@ -23,8 +22,6 @@ function App () {
         {/* <Sidebar /> */}
         <Routes>
 
-        <Route path="/beverage" element={<BevarageList />} />
-        <Route path="/beverage/:id" element={<BevarageDetails />} />
 
 
         </Routes>
