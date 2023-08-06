@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { LoadingButton } from '@mui/lab';
-import { Avatar, Box, Container, Grid, TextField, Typography } from '@mui/material';
-import { FormikProvider, useFormik } from 'formik';
+import { Avatar } from '@mui/material';
 
 const ProfileContainer = styled.div`
   position: relative;
@@ -13,6 +12,7 @@ const ProfileAvatar = styled(Avatar)`
   height: 100px;
   background-color: #19C048;
   cursor: pointer;
+  border: 2px solid #19C048; /* Add a border with the same color as the background */
 `;
 
 const PopUpForm = styled.div`
@@ -47,7 +47,17 @@ const InputGroup = styled.div`
 `;
 
 const SubmitButton = styled(LoadingButton)`
-  background-color: #15B76C;
+  background-color: #19C048; /* Use the specified color code for the buttons */
+  color: #fff; /* Set text color to white */
+  &:hover {
+    background-color: #05E086;
+  }
+`;
+
+const CloseButton = styled(LoadingButton)`
+  background-color: #19C048; /* Use the specified color code for the buttons */
+  color: #fff; /* Set text color to white */
+  margin-right: 10px;
   &:hover {
     background-color: #05E086;
   }
@@ -64,42 +74,6 @@ const Profile = () => {
     password_confirmation: "",
   };
 
-  const formik = useFormik({
-    enableReinitialize: true,
-    initialValues: {
-      firstname: user?.firstname ? user.firstname : '',
-      lastname: user?.lastname ? user.lastname : '',
-      username: user?.username ? user.username : '',
-      phonenumber: user?.phonenumber ? user.phonenumber : '',
-      email: user?.email ? user.email : '',
-      password: user?.password ? user.password : '',
-      password_confirmation: user?.password_confirmation ? user.password_confirmation : '',
-    },
-    onSubmit: async (values) => {
-      console.log(values);
-      setIsEditing(false);
-      try {
-        const response = await fetch(`https://tuneflow-gpsc.onrender.com/users/${user.id}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(values),
-        });
-        if (response.ok) {
-          // Update the user information on the frontend if needed
-          // ...
-          setIsEditing(false);
-          console.log('Profile updated successfully!');
-        } else {
-          console.log('Failed to update profile.');
-        }
-      } catch (error) {
-        console.log('Error:', error);
-      }
-    },
-  });
-
   const handleEditProfileClick = () => {
     setIsEditing(true);
   };
@@ -110,21 +84,37 @@ const Profile = () => {
 
   return (
     <ProfileContainer>
-      <Container component="main" maxWidth="xs">
-        {/* Rest of the code... */}
-      </Container>
-
+      <ProfileAvatar onClick={handleAvatarClick} /> {/* Render the Avatar component */}
       {isEditing && (
         <PopUpForm>
           <InputGroup>
-            <label>Full Name</label>
+            <label>First Name</label>
             <input type="text" />
           </InputGroup>
-          {/* Add other input fields for Address, Phone number, Email, Item, Description, Quantity, Price, Shipping Cost, and Tax */}
-          {/* ... (rest of the code) */}
+          <InputGroup>
+            <label>Last Name</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Phone Number</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Email</label>
+            <input type="email" />
+          </InputGroup>
+          <InputGroup>
+            <label>Location</label>
+            <input type="text" />
+          </InputGroup>
+          <InputGroup>
+            <label>Password</label>
+            <input type="password" />
+          </InputGroup>
+          {/* Add other input fields as needed */}
           <div>
             <SubmitButton onClick={() => setIsEditing(false)}>Submit</SubmitButton>
-            <SubmitButton onClick={() => setIsEditing(false)}>Close</SubmitButton>
+            <CloseButton onClick={() => setIsEditing(false)}>Close</CloseButton>
           </div>
         </PopUpForm>
       )}

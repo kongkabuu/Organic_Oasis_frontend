@@ -1,11 +1,25 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import logo from './Assets/logo.webp';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Profile from './Profile'; // Import the Profile component
 
 const LogoImage = styled.img`
   width: 5rem;
+`;
+
+const SearchBarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.01rem;
+  background-color: #ffffff; /* Set the background color to green */
+`;
+
+const CartIconWrapper = styled.div`
+  margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
 
 const HeaderContainer = styled.div`
@@ -16,6 +30,15 @@ const HeaderContainer = styled.div`
   padding: 0 2rem;
   background-color: var(--white-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Add styles to center the elements */
+  ${SearchBarContainer} {
+    margin-right: 1.5rem; /* Space between SearchBar and Profile */
+  }
+
+  ${CartIconWrapper} {
+    margin-left: 1.5rem; /* Space between Profile and ShoppingCartIcon */
+  }
 `;
 
 const SearchButton = styled.button`
@@ -33,23 +56,9 @@ const SearchButton = styled.button`
   }
 `;
 
-const CartIconWrapper = styled.div`
-  margin-left: 5cm; /* Set the margin-left to 5cm to move the cart icon to the left */
-`;
-
-
 const CartIcon = styled(ShoppingCartIcon)`
   color: #19C048;
-  margin-left: cm; 
-`;
-
-const SearchBarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  border: 2px solid black;
-  border-radius: 5px;
-  padding: 0.01rem;
-  background-color: #ffffff; /* Set the background color to green */
+  margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
 
 const SearchBarForm = styled.form`
@@ -76,18 +85,16 @@ const SearchInput = styled.input`
 `;
 
 const SearchIcon = styled(IoSearch)`
-  
   font-size: 1.2rem;
   cursor: pointer;
   background-color: #19C048; /* Set the background color to white */
-  height: 100%; 
+  height: 100%;
   width: 2rem;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 
 function SearchBar({ onSubmit, value, onChange }) {
   return (
@@ -100,8 +107,7 @@ function SearchBar({ onSubmit, value, onChange }) {
           value={value}
           onChange={onChange}
         />
-        <SearchIcon type="submit"></SearchIcon> 
-        
+        <SearchIcon type="submit"></SearchIcon>
       </SearchBarForm>
     </SearchBarContainer>
   );
@@ -109,10 +115,10 @@ function SearchBar({ onSubmit, value, onChange }) {
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
-  const handleSearchSubmit = event => {
+  const handleSearchSubmit = (event) => {
     event.preventDefault();
     // Perform the search action here with the 'searchQuery' value
     console.log('Searching for:', searchQuery);
@@ -124,10 +130,11 @@ function Header() {
         onSubmit={handleSearchSubmit}
         value={searchQuery}
         onChange={handleInputChange}
-      /><CartIconWrapper>
-      <CartIcon />
-    </CartIconWrapper>
-      {/* <Profile/> */}
+      />
+      <CartIconWrapper>
+        <CartIcon />
+      </CartIconWrapper>
+      <Profile /> {/* Render the Profile component */}
     </HeaderContainer>
   );
 }
