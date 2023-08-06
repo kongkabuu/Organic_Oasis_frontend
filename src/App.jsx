@@ -10,6 +10,8 @@ import HomeWithSellers from './Components/HomeWithSellers';
  // Categories
  import MeatList from './Components/Meat';
  import MeatDetails from './Components/Meat';
+ import DairyList from './Components/Dairy';
+ import DairyDetails from './Components/Dairy';
 
 
 function App () {
@@ -23,7 +25,10 @@ function App () {
 
         <Routes>
         {/* <Sidebar /> */}
-        <Route path="/meat" component={<MeatList />} />
+        <Route path="/dairy" element={<DairyList />} />
+        <Route path="/dairy/:id" element={<DairyDetails />} />
+
+        <Route path="/meat" element={<MeatList />} />
         <Route path="/meat/:id" element={<MeatDetails />} />
         </Routes>
         </>

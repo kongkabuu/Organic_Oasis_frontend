@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-import './Dairy.css'; // Update the CSS import
+import './Dairy.css';
 import Loader from './Loader';
 
-// Update the API URL to reflect the dairy category
+
 const API_URL = 'http://127.0.0.1:3001/api/dairy';
 
-// Rename the component from MeatDetails to DairyDetails
+
 const DairyDetails = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
@@ -134,4 +134,4 @@ const DairyList = () => {
   );
 };
 
-export default { DairyDetails, DairyList }; // Export the DairyDetails and DairyList components
+export default { DairyDetails, DairyList };

@@ -2,17 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
-const Categories = () => {
-  const categoriesData = [
-    { name: 'Meat', emoji: '🥩' },
-    { name: 'Beverage', emoji: '🍹' },
-    { name: 'Bakery', emoji: '🍞' },
-    { name: 'Vegetables', emoji: '🥬' },
-    { name: 'Cereals', emoji: '🍚' },
-    { name: 'Species', emoji: '🧂' },
-    { name: 'Dairy', emoji: '🧀' },
-  ];
-
   const Circle = styled.div`
     width: 2cm;
     height: 2cm;
@@ -41,6 +30,17 @@ const Categories = () => {
     margin-top: -1.5cm;
     margin-left: 2.5cm;
   `;
+
+const Categories = () => {
+  const categoriesData = [
+    { name: 'Meat', emoji: '🥩' },
+    { name: 'Beverage', emoji: '🍹' },
+    { name: 'Bakery', emoji: '🍞' },
+    { name: 'Vegetables', emoji: '🥬' },
+    { name: 'Cereals', emoji: '🍚' },
+    { name: 'Species', emoji: '🧂' },
+    { name: 'Dairy', emoji: '🧀' },
+  ];
 
   return (
     <div>
