@@ -7,7 +7,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
-import rezeda from './Assets/rezeda.jpg';
+
+import juice from './Assets/juice.jpg';
+import bread from './Assets/bread.jpg';
+import r from './Assets/r.jpg';
+import vegetables from './Assets/vegetables.jpg';
+import spices from './Assets/spices.jpg';
+import milk from './Assets/milk.jpg';
 
 const HomeContainer = styled.div`
   text-align: center;
@@ -77,12 +83,12 @@ const CardColumn = styled.div`
 export default function Home() {
   // Sample data for 6 cards (replace with your actual data)
   const featuredProducts = [
-    { id: 1, name: 'Product 1', image: rezeda, likes: 95 },
-    { id: 2, name: 'Product 2', image: rezeda, likes: 85 },
-    { id: 3, name: 'Product 3', image: rezeda, likes: 90 },
-    { id: 4, name: 'Product 4', image: rezeda, likes: 92 },
-    { id: 5, name: 'Product 5', image: rezeda, likes: 89 },
-    { id: 6, name: 'Product 6', image: rezeda, likes: 88 },
+    { id: 1, name: 'Juice Lava Price:$4.99', image: juice, likes: 95 },
+    { id: 2, name: 'Baked Wonders Price:$3.99', image: bread, likes: 85 },
+    { id: 3, name: 'SteakHouse Price:$5.99', image: r, likes: 90 },
+    { id: 4, name: 'Organic Mart Price:$3.99', image: vegetables, likes: 92 },
+    { id: 5, name: 'Spice Delight Price:$1.99', image: spices, likes: 89 },
+    { id: 6, name: 'Creamy Creations Price:$7.0', image: milk, likes: 88 },
   ];
 
   return (
