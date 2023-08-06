@@ -3,7 +3,7 @@ import Header from './Components/Header';
 import HeroBanner from './Components/HeroBanner';
 import Categories from './Components/Categories';
 // import Sidebar from './Components/SideBar';
-import Home from './Components/Home';
+// import Home from './Components/Home';
 // import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
 import HomeWithSellers from './Components/HomeWithSellers';
@@ -20,15 +20,15 @@ function App () {
       <HeroBanner/>
       <Categories/>
         <>
-        {/* <Sidebar /> */}
-        <Routes>
 
+        <Routes>
+        {/* <Sidebar /> */}
         <Route path="/meat" component={<MeatList />} />
         <Route path="/meat/:id" element={<MeatDetails />} />
         </Routes>
         </>
 
-      <Home/>
+      {/* <Home/> */}
       {/* <Sellers/> */}
       <HomeWithSellers />
       <Footer></Footer>

@@ -130,4 +130,4 @@ const MeatList = () => {
   );
 };
 
-export { MeatDetails, MeatList };
+export default { MeatDetails, MeatList };
