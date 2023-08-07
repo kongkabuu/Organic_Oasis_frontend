@@ -1,62 +1,58 @@
-import React, { useState } from 'react';
-import "./Cart.css"
 
-const GroceryCart = () => {
-  // State to keep track of selected products
-  const [selectedProducts, setSelectedProducts] = useState([]);
+import React from 'react';
+import { useCart } from "react-use-cart";
 
-  // Sample grocery products
-  const products = [
-    { id: 1, name: 'Apples', price: 1.99 },
-    { id: 2, name: 'Bananas', price: 0.99 },
-    { id: 3, name: 'Oranges', price: 2.49 },
-    // Add more products as needed
-  ];
+const Cart = () => {
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    totalItems,
+    cartTotal,
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+  } = useCart();
 
-  // Function to add a product to the cart
-  const addToCart = (product) => {
-    setSelectedProducts([...selectedProducts, product]);
-  };
-
-  // Function to remove a product from the cart
-  const removeFromCart = (productId) => {
-    const updatedCart = selectedProducts.filter((product) => product.id !== productId);
-    setSelectedProducts(updatedCart);
-  };
-
-  // Calculate the total price of selected products
-  const getTotalPrice = () => {
-    return selectedProducts.reduce((total, product) => total + product.price, 0);
-  };
+  if (isEmpty) return <h1 className="text-center">Your cart is Empty</h1>;
 
   return (
-    <div>
-      <h1>Online Grocery Cart</h1>
-      <div>
-        <h2>Available Products</h2>
-        <ul>
-          {products.map((product) => (
-            <li key={product.id}>
-              {product.name} - ${product.price.toFixed(2)}
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
-            </li>
-          ))}
-        </ul>
+    <section className="py-4 container">
+      <div className="row justify-content-center">
+        <div className="col-12">
+          <h5>Cart ({totalUniqueItems}) total Items: ({totalItems})</h5>
+          <table className='table table-light table-hover m-0'>
+            <tbody>
+              {items.map((item, index) => (
+                <tr key={index}>
+                  <td>
+                    <img src={item.img} style={{ height: '6rem' }} alt={item.title} />
+                  </td>
+                  <td>{item.title}</td>
+                  <td>{item.price}</td>
+                  <td>Quantity ({item.quantity})</td>
+                  <td>
+                    <button
+                      className="btn btn-info ms-2"
+                      onClick={() => updateItemQuantity(item.id, item.quantity - 1)}
+                    >-</button>
+                    <button
+                      className="btn btn-info ms-2"
+                      onClick={() => updateItemQuantity(item.id, item.quantity + 1)}
+                    >+</button>
+                    <button
+                      className="btn btn-danger ms-2"
+                      onClick={() => removeItem(item.id)}
+                    >Remove Item</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div>
-        <h2>Cart</h2>
-        <ul>
-          {selectedProducts.map((product) => (
-            <li key={product.id}>
-              {product.name} - ${product.price.toFixed(2)}
-              <button onClick={() => removeFromCart(product.id)}>Remove</button>
-            </li>
-          ))}
-        </ul>
-        <p>Total Price: ${getTotalPrice().toFixed(2)}</p>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default GroceryCart;
+export default Cart;
