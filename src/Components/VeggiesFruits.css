@@ -1,0 +1,166 @@
+/* Veggies and Fruits Details */
+
+.veggies-fruits-details {
+    padding: 6rem 0;
+  }
+
+  .back-btn {
+    margin-left: 20px;
+    margin-bottom: 2.6rem;
+    transition: var(--transition);
+  }
+
+  .back-btn:hover {
+    color: var(--green-color);
+  }
+
+  .back-btn span {
+    margin-left: 1rem;
+  }
+
+  .veggies-fruits-details-content {
+    gap: 4rem;
+  }
+
+  .veggies-fruits-details-img {
+    max-height: 600px;
+    overflow: hidden;
+  }
+
+  .veggies-fruits-details-img img {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .veggies-fruits-details-item {
+    margin-bottom: 1.4rem;
+  }
+
+  .veggies-fruits-details-item.description {
+    opacity: 0.8;
+  }
+
+  .veggies-fruits-details-info {
+    overflow-y: scroll;
+    max-height: 600px;
+    padding: 1.4rem;
+  }
+
+  .veggies-fruits-details-info::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .veggies-fruits-details-info::-webkit-scrollbar-track {
+    border-radius: 8px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .veggies-fruits-details-info::-webkit-scrollbar-thumb {
+    background-color: var(--green-color);
+    outline: -1px solid slategray;
+    border-radius: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .veggies-fruits-details-content {
+      grid-template-columns: 40% 60%;
+      gap: 0;
+    }
+    .veggies-fruits-details-img {
+      padding: 0 6rem 0 2rem;
+    }
+    .veggies-fruits-details-img img {
+      max-width: 100%;
+    }
+  }
+
+  /* Veggies and Fruits List */
+
+  .veggies-fruits-list,
+  .veggies-fruits-details {
+    padding: 3rem 0;
+    background-color: #f8f9fa;
+  }
+
+  .veggies-fruits-list-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+  }
+
+  .veggies-fruits-item {
+    padding: 3rem 2rem;
+    border-radius: 4px;
+    background-color: var(--white-color);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .veggies-fruits-item-img img {
+    max-width: 180px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .veggies-fruits-item:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  }
+
+  .veggies-fruits-item-img img {
+    max-width: 180px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .veggies-fruits-item-info {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .veggies-fruits-item-info-item.title {
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+
+  .veggies-fruits-item-info-item:not(.veggies-fruits-item-info-item.title) span:last-child {
+    opacity: 0.8;
+  }
+
+  .veggies-fruits-item-info-item.price {
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .section-title h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .section-title p {
+    font-size: 1.6rem;
+    color: var(--light-black-color);
+    margin-bottom: 3rem;
+  }
+
+  /* Styling for the "Add to Cart" button (this won't be functional) */
+  .add-to-cart-btn {
+    background-color: var(--green-color);
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .add-to-cart-btn:hover {
+    background-color: #19a03e;
+  }

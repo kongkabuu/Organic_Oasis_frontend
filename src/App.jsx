@@ -16,6 +16,8 @@ import HomeWithSellers from './Components/HomeWithSellers';
  import DairyDetails from './Components/DairyDetails';
  import BeverageList from './Components/BeverageList';
  import BeverageDetails from './Components/BeverageDetails';
+ import VeggiesFruitsList from './Components/VeggiesFruitsList';
+ import VeggiesFruitsDetails from './Components/VeggiesFruitsDetails';
 //  import Cart from './Components/Cart';
 //  import CartComponent from './Components/CartComponent';
 //  import {CartProvider } from 'react-use-cart';
@@ -29,8 +31,8 @@ function App () {
       <Header />
       <HeroBanner/>
       <Categories/>
-        <>
-
+        <>eggiesFruitsDetails
+        eggiesFruitsDetails
         <Routes>
         {/* <Sidebar /> */}
         {/* <Route path="/login" element={<LoginForm />} /> */}
@@ -46,6 +48,8 @@ function App () {
         <Route path="/meat/:id" element={<MeatDetails />} />
         <Route path="/beverage" element={<BeverageList />} />
         <Route path="/beverage/:id" element={<BeverageDetails />} />
+        <Route path="/vegetables" element={<VeggiesFruitsList />} />
+        <Route path="/vegetables/:id" element={<VeggiesFruitsDetails />} />
         </Routes>
         </>
 
