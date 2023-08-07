@@ -14,6 +14,8 @@ import HomeWithSellers from './Components/HomeWithSellers';
  import MeatDetails from './Components/MeatDetails';
  import DairyList from './Components/DairyList';
  import DairyDetails from './Components/DairyDetails';
+ import BeverageList from './Components/BeverageList';
+ import BeverageDetails from './Components/BeverageDetails';
 //  import Cart from './Components/Cart';
 //  import CartComponent from './Components/CartComponent';
 //  import {CartProvider } from 'react-use-cart';
@@ -42,6 +44,8 @@ function App () {
 
         <Route path="/meat" element={<MeatList />} />
         <Route path="/meat/:id" element={<MeatDetails />} />
+        <Route path="/beverage" element={<BeverageList />} />
+        <Route path="/beverage/:id" element={<BeverageDetails />} />
         </Routes>
         </>
 

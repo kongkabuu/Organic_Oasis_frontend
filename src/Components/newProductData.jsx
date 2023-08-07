@@ -28,6 +28,23 @@ const newProductData = [
       price: 3500.45,
       image: 'https://i.pinimg.com/564x/61/f2/9e/61f29e5401086ea570a319b77bf32a1b.jpg',
     },
+    {
+      id: 8,
+      name: 'Two Steak',
+      description: '2 pieces',
+      price: 3500.45,
+      image: 'https://i.pinimg.com/564x/d3/3f/ef/d33fef229df24657a1d7e2c180435a2f.jpg',
+    },
+    {
+      id: 8,
+      name: 'Fish',
+      description: '2 pieces',
+      price: 3500.45,
+      image: 'https://i.pinimg.com/564x/94/62/73/94627336cd9af9bb9a5b7a05033c6e77.jpg',
+    },
+
+
+
   ];
 
   export default newProductData;
