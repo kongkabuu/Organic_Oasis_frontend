@@ -1,5 +1,5 @@
 import { useState } from "react";
-import image from "../assets/login-image.jpeg";
+import image from "../Assets/login-image.jpeg";
 import "./Login.css";
 
 export default function SignUp() {

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import logo from '../Assets/logo.webp';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Profile from './Profile'; // Import the Profile component
-import LoginForm from './LoginForm';
+// import LoginForm from './LoginForm';
 
 const LogoImage = styled.img`
   width: 5rem;
@@ -60,6 +61,7 @@ const SearchButton = styled.button`
 const CartIcon = styled(ShoppingCartIcon)`
   color: #19C048;
   margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
+  cursor: pointer;
 `;
 
 const SearchBarForm = styled.form`
@@ -133,11 +135,14 @@ function Header() {
         onChange={handleInputChange}
       />
       <CartIconWrapper>
+      <Link to="/cart">
         <CartIcon />
+        <span>Cart</span>
+        </Link>
       </CartIconWrapper>
       <Profile /> {/* Render the Profile component */}
-      <LoginButton onClick={handleLoginButtonClick}>Log In</LoginButton>
-      {showLoginForm && <LoginForm onClose={() => setShowLoginForm(false)} />}
+      {/* <LoginButton onClick={handleLoginButtonClick}>Log In</LoginButton>
+      {showLoginForm && <LoginForm onClose={() => setShowLoginForm(false)} />} */}
     </HeaderContainer>
   );
 }

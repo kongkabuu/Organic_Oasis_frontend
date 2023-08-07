@@ -7,13 +7,17 @@ import Categories from './Components/Categories';
 // import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
 import HomeWithSellers from './Components/HomeWithSellers';
-import Login from "./components/Login";
-import SignUp from "./components/Sign-up";
+ import Login from './Components/Login';
+ import SignUp from './Components/Sign-up';
  // Categories
  import MeatList from './Components/MeatList';
  import MeatDetails from './Components/MeatDetails';
- import DairyList from './Components/Dairy';
- import DairyDetails from './Components/Dairy';
+ import DairyList from './Components/DairyList';
+ import DairyDetails from './Components/DairyDetails';
+//  import Cart from './Components/Cart';
+//  import CartComponent from './Components/CartComponent';
+//  import {CartProvider } from 'react-use-cart';
+import './index.css';
 
 
 function App () {
@@ -27,9 +31,12 @@ function App () {
 
         <Routes>
         {/* <Sidebar /> */}
-        <Route path="/login" element={<Login />} />
-          <Route path="/sign-up" element={<SignUp />} />
+        {/* <Route path="/login" element={<LoginForm />} /> */}
+          {/* <Route path="/cart" element={<Cart />} /> */}
 
+
+          <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" component={<Login />} />
         <Route path="/dairy" element={<DairyList />} />
         <Route path="/dairy/:id" element={<DairyDetails />} />
 
@@ -40,7 +47,11 @@ function App () {
 
       {/* <Home/> */}
       {/* <Sellers/> */}
+
       <HomeWithSellers />
+      {/* <Cart />
+      <CartComponent/> */}
+
       <Footer></Footer>
       </div>
      </BrowserRouter>

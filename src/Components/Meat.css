@@ -85,7 +85,9 @@
   }
 
   .meatlist-content {
-    gap: 3rem;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
   }
 
   .meat-item {
@@ -94,6 +96,15 @@
     background-color: var(--white-color);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .meat-item-img img {
+    max-width: 180px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .meat-item:hover {
@@ -108,6 +119,7 @@
 
   .meat-item-info {
     margin-top: 2rem;
+    text-align: center;
   }
 
   .meat-item-info-item.title {
@@ -153,26 +165,3 @@
     background-color: #19a03e;
   }
 
-@media screen and (min-width: 600px){
-    .bevaragelist-content{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (min-width: 992px){
-    .bevaragelist-content{
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .bevarage-item-img img{
-        max-width: 150px;
-    }
-}
-
-@media screen and (min-width: 992px){
-    .bevaragelist-content{
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .bevarage-item-img img{
-        max-width: 120px;
-    }
-}

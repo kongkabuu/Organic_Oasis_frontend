@@ -5,8 +5,6 @@ import './Meat.css';
 import Loader from './Loader';
 import newProductData from './newProductData';
 
-const API_URL = 'http://127.0.0.1:3000/products';
-
 const MeatDetails = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
@@ -17,17 +15,9 @@ const MeatDetails = () => {
     setLoading(true);
     async function getMeatDetails() {
       try {
-        const response = await fetch(`${API_URL}/${id}`);
-        const data = await response.json();
-
-        if (data && data.length > 0) {
-          const selectedMeat = data.find((item) => item.id === parseInt(id));
-          setMeat(selectedMeat);
-        } else {
-          // Check if the selected meat is not found in the API data, use the hardcoded data
-          const newSelectedMeat = newProductData.find((item) => item.id === parseInt(id));
-          setMeat(newSelectedMeat);
-        }
+        // Check if the selected meat is not found in the API data, use the hardcoded data
+        const newSelectedMeat = newProductData.find((item) => item.id === parseInt(id));
+        setMeat(newSelectedMeat);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -39,6 +29,7 @@ const MeatDetails = () => {
   }, [id]);
 
   if (loading) return <Loader />;
+
 
 
   return (

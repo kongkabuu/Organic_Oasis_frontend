@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import image from "../assets/login-image.jpeg";
+import { Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import image from "../Assets/login-image.jpeg";
 import "./Login.css";
+import { useState } from "react";
 
 export default function Login() {
-  const [showLoginForm, setShowLoginForm] = useState(false); // State to manage login form display
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -20,6 +21,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     // Perform the login using the fetch request
     fetch("http://127.0.0.1:3000/login", {
       method: "POST",
@@ -38,49 +40,46 @@ export default function Login() {
         console.error("Error:", error);
       });
   }
-
   return (
     <>
       <div className="container">
         <div className="login-details">
-          {showLoginForm ? ( // Display login form when showLoginForm is true
-            <>
-              <h1>Welcome, login here</h1>
-              <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email:</label>
-                <input
-                  type="text"
-                  placeholder="Enter your email"
-                  onChange={handleChange}
-                  name="email"
-                  value={formData.email}
-                />
-                <label htmlFor="password">Password:</label>
-                <input
-                  type="password" // Change input type to "password" for password fields
-                  placeholder="password"
-                  onChange={handleChange}
-                  name="password"
-                  value={formData.password}
-                />
-                <button className="login-button" type="submit">
-                  Login in
-                </button>
-              </form>
-            </>
-          ) : (
-            // Display login button when showLoginForm is false
-            <button className="login-button" onClick={() => setShowLoginForm(true)}>
-              Login
-            </button>
-          )}
+          <h1>Welcome, login here</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="text"
+              placeholder="Enter your email"
+              onChange={handleChange}
+              name="email"
+              value={formData.email}
+            />
+            <label htmlFor="password">Password:</label>
+            <input
+              type="text"
+              placeholder="password"
+              onChange={handleChange}
+              name="password"
+              value={formData.password}
+            />
+            <button className="login-button">Login in</button>
+          </form>
 
           <div>
             <div className="login-google">
-              {/* Your Google login button code here */}
+              <GoogleLogin
+                onSuccess={(CredentialResponse) => {
+                  console.log(CredentialResponse);
+                }}
+                onError={() => {
+                  console.log("login failed");
+                }}
+                useOneTap
+              />
             </div>
+
             <span className="login-link">
-              register here{/* Your link to the SignUp component here */}
+              register here<Link to="/sign-up">Register</Link>
             </span>
           </div>
         </div>
