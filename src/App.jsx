@@ -7,8 +7,8 @@ import Categories from './Components/Categories';
 // import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
 import HomeWithSellers from './Components/HomeWithSellers';
- import Login from './Components/Login';
- import SignUp from './Components/Sign-up';
+//  import Login from './Components/Login';
+//  import SignUp from './Components/Sign-up';
  // Categories
  import MeatList from './Components/MeatList';
  import MeatDetails from './Components/MeatDetails';
@@ -35,8 +35,8 @@ function App () {
           {/* <Route path="/cart" element={<Cart />} /> */}
 
 
-          <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/login" component={<Login />} />
+          {/* <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" component={<Login />} /> */}
         <Route path="/dairy" element={<DairyList />} />
         <Route path="/dairy/:id" element={<DairyDetails />} />
 
