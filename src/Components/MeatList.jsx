@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Meat.css';
 import Loader from './Loader';
+import newProductData from './newProductData';
 
-const API_URL = 'http://127.0.0.1:3001/api/meat';
+const API_URL = 'http://127.0.0.1:3000/products';
 
 const Meat = ({ name, price, image, id }) => {
   return (
@@ -36,7 +37,8 @@ const MeatList = () => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        setMeatData(data);
+        const mergedData = [...data, ...newProductData]; // Merge the API data with the hardcoded data
+        setMeatData(mergedData);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -48,6 +50,7 @@ const MeatList = () => {
   }, []);
 
   if (loading) return <Loader />;
+
 
   return (
     <section className='meatlist'>

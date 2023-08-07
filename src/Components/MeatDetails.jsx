@@ -3,8 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import './Meat.css';
 import Loader from './Loader';
+import newProductData from './newProductData';
 
-const API_URL = 'http://127.0.0.1:3001/api/meat';
+const API_URL = 'http://127.0.0.1:3000/products';
 
 const MeatDetails = () => {
   const { id } = useParams();
@@ -23,7 +24,9 @@ const MeatDetails = () => {
           const selectedMeat = data.find((item) => item.id === parseInt(id));
           setMeat(selectedMeat);
         } else {
-          setMeat(null);
+          // Check if the selected meat is not found in the API data, use the hardcoded data
+          const newSelectedMeat = newProductData.find((item) => item.id === parseInt(id));
+          setMeat(newSelectedMeat);
         }
         setLoading(false);
       } catch (error) {
@@ -36,6 +39,7 @@ const MeatDetails = () => {
   }, [id]);
 
   if (loading) return <Loader />;
+
 
   return (
     <section className='meat-details'>

@@ -7,6 +7,8 @@ import Categories from './Components/Categories';
 // import Sellers from './Components/Sellers';
 import Footer from './Components/Footer';
 import HomeWithSellers from './Components/HomeWithSellers';
+import Login from "./components/Login";
+import SignUp from "./components/Sign-up";
  // Categories
  import MeatList from './Components/MeatList';
  import MeatDetails from './Components/MeatDetails';
@@ -25,6 +27,9 @@ function App () {
 
         <Routes>
         {/* <Sidebar /> */}
+        <Route path="/login" element={<Login />} />
+          <Route path="/sign-up" element={<SignUp />} />
+
         <Route path="/dairy" element={<DairyList />} />
         <Route path="/dairy/:id" element={<DairyDetails />} />
 

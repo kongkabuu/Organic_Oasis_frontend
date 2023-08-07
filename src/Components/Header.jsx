@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Profile from './Profile'; // Import the Profile component
+import LoginForm from './LoginForm';
 
 const LogoImage = styled.img`
   width: 5rem;
@@ -135,6 +136,8 @@ function Header() {
         <CartIcon />
       </CartIconWrapper>
       <Profile /> {/* Render the Profile component */}
+      <LoginButton onClick={handleLoginButtonClick}>Log In</LoginButton>
+      {showLoginForm && <LoginForm onClose={() => setShowLoginForm(false)} />}
     </HeaderContainer>
   );
 }
