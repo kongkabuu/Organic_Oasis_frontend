@@ -1,22 +1,28 @@
 import Header from './Components/Header';
-import HeroBanner from './Components/HeroBanner';
-import Categories from './Components/Categories';
-import Home from './Components/Home';
-import Sellers from './Components/Sellers';
+// import HeroBanner from './Components/HeroBanner';
+// import Categories from './Components/Categories';
 import Footer from './Components/Footer';
-import HomeWithSellers from './Components/HomeWithSellers';
-
+import Profile from './Components/Profile';
+// import HomeWithSellers from './Components/HomeWithSellers';
+import { Route,Routes} from 'react-router-dom';
+import HomePage from './Components/HomePage';
 
 function App() {
   return (
     <div>
-      <Header />
-      <HeroBanner/>
-      <Categories/>
-      {/* <Home/> */}
-      {/* <Sellers/> */}
-      <HomeWithSellers />
-      <Footer/>
+      {/* <HomePage/> */}
+      <Header/>
+      {/* <HeroBanner/> */}
+      {/* <Categories/> */}
+      {/* <HomeWithSellers /> */}
+    
+
+      
+        <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        </Routes>
+        <Footer/>
       {/* Add other components or content here */}
     </div>
   );

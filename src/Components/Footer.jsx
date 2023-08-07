@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const FooterContainer = styled.footer`
   background-color: #000;
@@ -52,9 +55,9 @@ const SocialIcons = styled.div`
 `;
 
 const SocialIcon = styled.a`
-  color: #19c048;
+  color: #fff; /* Change the color to white */
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.8rem ;
   margin-right: 1rem;
   transition: color 0.3s;
   &:last-child {
@@ -109,19 +112,16 @@ const Footer = () => {
         <Column>
           <Heading>Follow Us</Heading>
           <SocialIcons>
+            {/* Use the specified icons from MUI */}
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="Facebook">ⓕ</Emoji>
+              <FontAwesomeIcon icon={faFacebook} />
             </SocialIcon>
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="Twitter">ⓧ</Emoji>
+              <FontAwesomeIcon icon={faInstagram} />
             </SocialIcon>
+            {/* Replace the Twitter icon with an "X" icon */}
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="Instagram">
-ⓖ</Emoji>
-            </SocialIcon>
-            <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="LinkedIn">
-</Emoji>
+              <FontAwesomeIcon icon={faTimes} />
             </SocialIcon>
           </SocialIcons>
         </Column>

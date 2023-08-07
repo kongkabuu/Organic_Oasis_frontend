@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import logo from './Assets/logo.webp';
+// import logo from './Assets/logo.webp';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Profile from './Profile'; // Import the Profile component
+//import Profile from './Profile'; // Import the Profile component
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
 
 const LogoImage = styled.img`
   width: 5rem;
@@ -30,14 +32,15 @@ const HeaderContainer = styled.div`
   padding: 0 2rem;
   background-color: var(--white-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 2cm;
 
   /* Add styles to center the elements */
   ${SearchBarContainer} {
-    margin-right: 1.5rem; /* Space between SearchBar and Profile */
+    margin-left: 30rem; /* Space between SearchBar and Profile */
   }
 
   ${CartIconWrapper} {
-    margin-left: 1.5rem; /* Space between Profile and ShoppingCartIcon */
+    margin-left: 10rem; /* Space between Profile and ShoppingCartIcon */
   }
 `;
 
@@ -57,8 +60,10 @@ const SearchButton = styled.button`
 `;
 
 const CartIcon = styled(ShoppingCartIcon)`
-  color: #19C048;
-  margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
+  color: green;
+  margin-top: 0.3cm;
+  transform: scale(1.6); 
+  margin-left: 6cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
 
 const SearchBarForm = styled.form`
@@ -87,7 +92,7 @@ const SearchInput = styled.input`
 const SearchIcon = styled(IoSearch)`
   font-size: 1.2rem;
   cursor: pointer;
-  background-color: #19C048; /* Set the background color to white */
+  background-color: green; /* Set the background color to white */
   height: 100%;
   width: 2rem;
 
@@ -115,6 +120,7 @@ function SearchBar({ onSubmit, value, onChange }) {
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+  //const navigate=useNavigate()
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -123,9 +129,12 @@ function Header() {
     // Perform the search action here with the 'searchQuery' value
     console.log('Searching for:', searchQuery);
   };
+  // const handleClick=() =>{
+  //   navigate('/profile')
+  // }
   return (
     <HeaderContainer>
-      <LogoImage src={logo} alt="Logo" />
+      {/* <LogoImage src={logo} alt="Logo" /> */}
       <SearchBar
         onSubmit={handleSearchSubmit}
         value={searchQuery}
@@ -134,7 +143,10 @@ function Header() {
       <CartIconWrapper>
         <CartIcon />
       </CartIconWrapper>
-      <Profile /> {/* Render the Profile component */}
+      <Link to="/profile">
+      {/* <Profile />  */}
+<AccountCircleIcon  />
+</Link>
     </HeaderContainer>
   );
 }
