@@ -59,4 +59,4 @@ const DairyList = () => { // Update component name
   );
 };
 
-export default DairyList;
+export default (Dairy , DairyList);
