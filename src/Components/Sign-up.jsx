@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import image from "../assets/login-image.jpeg";
 import "./Login.css";
-import { AuthContext } from './AuthContext';
+import { AuthContext } from "./AuthContext";
 
 export default function SignUp() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -34,75 +34,71 @@ export default function SignUp() {
         console.log(data);
       })
       .catch((error) => {
-
         console.error("Error:", error);
       });
   }
   return (
     <>
-    <div>
-    {isLoggedIn ? (
-        <p>You are already logged in.</p>
-      ) : (
+      <div>
+        {isLoggedIn ? (
+          <p>You are already logged in.</p>
+        ) : (
+          <div className="container">
+            <div className="login-details">
+              <h1>Register here</h1>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Name"
+                  onChange={handleChange}
+                  name="name"
+                  value={formData.name}
+                />
+                <label htmlFor="name">username:</label>
+                <input
+                  type="text"
+                  placeholder="Enter your Name"
+                  onChange={handleChange}
+                  name="username"
+                  value={formData.username}
+                />
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="text"
+                  placeholder="email"
+                  onChange={handleChange}
+                  name="email"
+                  value={formData.email}
+                />
+                <label htmlFor="password">Password:</label>
+                <input
+                  type="text"
+                  placeholder="password"
+                  onChange={handleChange}
+                  name="password"
+                  value={formData.password}
+                />
+                <label htmlFor="password_confirmation">
+                  Password confirmation:
+                </label>
+                <input
+                  type="text"
+                  placeholder="password"
+                  onChange={handleChange}
+                  name="password_confirmation"
+                  value={formData.password_co}
+                />
+                <button className="login-button">sign up</button>
+              </form>
+            </div>
 
-        <div className="container">
-        <div className="login-details">
-          <h1>Register here</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              placeholder="Enter your Name"
-              onChange={handleChange}
-              name="name"
-              value={formData.name}
-            />
-            <label htmlFor="name">username:</label>
-            <input
-              type="text"
-              placeholder="Enter your Name"
-              onChange={handleChange}
-              name="username"
-              value={formData.username}
-            />
-            <label htmlFor="email">Email:</label>
-            <input
-              type="text"
-              placeholder="email"
-              onChange={handleChange}
-              name="email"
-              value={formData.email}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              type="text"
-              placeholder="password"
-              onChange={handleChange}
-              name="password"
-              value={formData.password}
-            />
-            <label htmlFor="password_confirmation">
-              Password confirmation:
-            </label>
-            <input
-              type="text"
-              placeholder="password"
-              onChange={handleChange}
-              name="password_confirmation"
-              value={formData.password_co}
-            />
-            <button className="login-button">sign up</button>
-          </form>
-        </div>
-
-        <div className="login-img">
-          <img src={image} alt=" cart icon" width="300px" height="598px" />
-        </div>
+            <div className="login-img">
+              <img src={image} alt=" cart icon" width="300px" height="598px" />
+            </div>
+          </div>
+        )}
       </div>
-      )}
-
-    </div>
-
     </>
   );
 }

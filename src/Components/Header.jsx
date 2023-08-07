@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "./Assets/logo.webp";
 import styled from "styled-components";
 import { IoSearch } from "react-icons/io5";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Profile from "./Profile"; // Import the Profile component
+import Login from "./Login";
 
 const LogoImage = styled.img`
   width: 5rem;
@@ -134,7 +135,7 @@ function Header() {
       <CartIconWrapper>
         <CartIcon />
       </CartIconWrapper>
-      <Profile /> {/* Render the Profile component */}
+      <Link to="/login">login</Link>
     </HeaderContainer>
   );
 }

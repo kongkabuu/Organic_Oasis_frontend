@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import image from "../assets/login-image.jpeg";
 import "./Login.css";
-import { useState } from "react";
-import { AuthContext } from './AuthContext';
+import { useState, useContext } from "react";
+import { AuthContext } from "./AuthContext";
 
 export default function Login() {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -41,15 +41,14 @@ export default function Login() {
         // Handle any errors that occurred during the fetch
         console.error("Error:", error);
       });
-      setIsLoggedIn(true)
+    setIsLoggedIn(true);
   }
   return (
     <>
-    <div>
-      {
-        isLoggedIn ?(
+      <div>
+        {isLoggedIn ? (
           <p>Welcome,{userName}</p>
-        ):(
+        ) : (
           <div className="container">
             <div className="login-details">
               <h1>Welcome, login here</h1>
@@ -96,9 +95,8 @@ export default function Login() {
               <img src={image} alt=" cart icon" width="300px" height="598px" />
             </div>
           </div>
-        )
-      }
-    </div>
+        )}
+      </div>
     </>
   );
 }

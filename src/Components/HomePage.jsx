@@ -1,9 +1,9 @@
-import Header from "./Components/Header";
-import HeroBanner from "./Components/HeroBanner";
-import Categories from "./Components/Categories";
+import Header from "./Header";
+import HeroBanner from "./HeroBanner";
+import Categories from "./Categories";
 
-import Footer from "./Components/Footer";
-import HomeWithSellers from "./Components/HomeWithSellers";
+import Footer from "./Footer";
+import HomeWithSellers from "./HomeWithSellers";
 
 function HomePage() {
   return (
