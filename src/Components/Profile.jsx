@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { LoadingButton } from '@mui/lab';
-import { Avatar } from '@mui/material';
+import { useState } from "react";
+import styled from "styled-components";
+import { LoadingButton } from "@mui/lab";
+import { Avatar } from "@mui/material";
 
 const ProfileContainer = styled.div`
   position: relative;
@@ -10,9 +10,9 @@ const ProfileContainer = styled.div`
 const ProfileAvatar = styled(Avatar)`
   width: 100px;
   height: 100px;
-  background-color: #19C048;
+  background-color: #19c048;
   cursor: pointer;
-  border: 2px solid #19C048; /* Add a border with the same color as the background */
+  border: 2px solid #19c048; /* Add a border with the same color as the background */
 `;
 
 const PopUpForm = styled.div`
@@ -47,19 +47,19 @@ const InputGroup = styled.div`
 `;
 
 const SubmitButton = styled(LoadingButton)`
-  background-color: #19C048; /* Use the specified color code for the buttons */
+  background-color: #19c048; /* Use the specified color code for the buttons */
   color: #fff; /* Set text color to white */
   &:hover {
-    background-color: #05E086;
+    background-color: #05e086;
   }
 `;
 
 const CloseButton = styled(LoadingButton)`
-  background-color: #19C048; /* Use the specified color code for the buttons */
+  background-color: #19c048; /* Use the specified color code for the buttons */
   color: #fff; /* Set text color to white */
   margin-right: 10px;
   &:hover {
-    background-color: #05E086;
+    background-color: #05e086;
   }
 `;
 
@@ -84,7 +84,8 @@ const Profile = () => {
 
   return (
     <ProfileContainer>
-      <ProfileAvatar onClick={handleAvatarClick} /> {/* Render the Avatar component */}
+      <ProfileAvatar onClick={handleAvatarClick} />{" "}
+      {/* Render the Avatar component */}
       {isEditing && (
         <PopUpForm>
           <InputGroup>
@@ -113,7 +114,9 @@ const Profile = () => {
           </InputGroup>
           {/* Add other input fields as needed */}
           <div>
-            <SubmitButton onClick={() => setIsEditing(false)}>Submit</SubmitButton>
+            <SubmitButton onClick={() => setIsEditing(false)}>
+              Submit
+            </SubmitButton>
             <CloseButton onClick={() => setIsEditing(false)}>Close</CloseButton>
           </div>
         </PopUpForm>

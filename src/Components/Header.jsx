@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import logo from './Assets/logo.webp';
-import styled from 'styled-components';
-import { IoSearch } from 'react-icons/io5';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Profile from './Profile'; // Import the Profile component
+import { useState } from "react";
+import logo from "./Assets/logo.webp";
+import styled from "styled-components";
+import { IoSearch } from "react-icons/io5";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Profile from "./Profile"; // Import the Profile component
 
 const LogoImage = styled.img`
   width: 5rem;
@@ -57,7 +57,7 @@ const SearchButton = styled.button`
 `;
 
 const CartIcon = styled(ShoppingCartIcon)`
-  color: #19C048;
+  color: #19c048;
   margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
 
@@ -87,7 +87,7 @@ const SearchInput = styled.input`
 const SearchIcon = styled(IoSearch)`
   font-size: 1.2rem;
   cursor: pointer;
-  background-color: #19C048; /* Set the background color to white */
+  background-color: #19c048; /* Set the background color to white */
   height: 100%;
   width: 2rem;
 
@@ -114,14 +114,14 @@ function SearchBar({ onSubmit, value, onChange }) {
 }
 
 function Header() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     // Perform the search action here with the 'searchQuery' value
-    console.log('Searching for:', searchQuery);
+    console.log("Searching for:", searchQuery);
   };
   return (
     <HeaderContainer>

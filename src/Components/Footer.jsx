@@ -1,5 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FooterContainer = styled.footer`
   background-color: #000;
@@ -110,18 +109,22 @@ const Footer = () => {
           <Heading>Follow Us</Heading>
           <SocialIcons>
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="Facebook">ⓕ</Emoji>
+              <Emoji role="img" aria-label="Facebook">
+                ⓕ
+              </Emoji>
             </SocialIcon>
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="Twitter">ⓧ</Emoji>
+              <Emoji role="img" aria-label="Twitter">
+                ⓧ
+              </Emoji>
             </SocialIcon>
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
               <Emoji role="img" aria-label="Instagram">
-ⓖ</Emoji>
+                ⓖ
+              </Emoji>
             </SocialIcon>
             <SocialIcon href="#" target="_blank" rel="noopener noreferrer">
-              <Emoji role="img" aria-label="LinkedIn">
-</Emoji>
+              <Emoji role="img" aria-label="LinkedIn"></Emoji>
             </SocialIcon>
           </SocialIcons>
         </Column>

@@ -1,16 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Categories = () => {
   // Categories data with emojis
   const categoriesData = [
-    { name: 'Meat', emoji: '🥩' },
-    { name: 'Beverage', emoji: '🍹' },
-    { name: 'Bakery', emoji: '🍞' },
-    { name: 'Vegetables', emoji: '🥬' },
-    { name: 'Cereals', emoji: '🍚' },
-    { name: 'Species', emoji: '🧂' },
-    { name: 'Dairy', emoji: '🧀' },
+    { name: "Meat", emoji: "🥩" },
+    { name: "Beverage", emoji: "🍹" },
+    { name: "Bakery", emoji: "🍞" },
+    { name: "Vegetables", emoji: "🥬" },
+    { name: "Cereals", emoji: "🍚" },
+    { name: "Species", emoji: "🧂" },
+    { name: "Dairy", emoji: "🧀" },
   ];
 
   // Styled Circle component
@@ -41,14 +40,14 @@ const Categories = () => {
   // Styled CategoryName component
   const CategoryName = styled.div`
     font-weight: bold;
-      margin-top: 1.5cm; /* Move up by 1 cm */
+    margin-top: 1.5cm; /* Move up by 1 cm */
     margin-left: 1.4cm; /* Move to the right by 1 cm */
     transform: translate(1cm, -1cm); /* Apply the translation */
   `;
 
   return (
     <div>
-      <h1 style={{ color: '#19C048', textAlign: 'center' }}>Categories</h1>
+      <h1 style={{ color: "#19C048", textAlign: "center" }}>Categories</h1>
       <Container>
         {categoriesData.map((category) => (
           <div key={category.name}>
