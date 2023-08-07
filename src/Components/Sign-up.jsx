@@ -1,8 +1,10 @@
 import { useState } from "react";
 import image from "../assets/login-image.jpeg";
 import "./Login.css";
+import { AuthContext } from './AuthContext';
 
 export default function SignUp() {
+  const { isLoggedIn } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,7 +40,12 @@ export default function SignUp() {
   }
   return (
     <>
-      <div className="container">
+    <div>
+    {isLoggedIn ? (
+        <p>You are already logged in.</p>
+      ) : (
+
+        <div className="container">
         <div className="login-details">
           <h1>Register here</h1>
           <form onSubmit={handleSubmit}>
@@ -92,6 +99,10 @@ export default function SignUp() {
           <img src={image} alt=" cart icon" width="300px" height="598px" />
         </div>
       </div>
+      )}
+
+    </div>
+
     </>
   );
 }

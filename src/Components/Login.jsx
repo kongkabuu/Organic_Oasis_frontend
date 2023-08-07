@@ -3,8 +3,10 @@ import { GoogleLogin } from "@react-oauth/google";
 import image from "../assets/login-image.jpeg";
 import "./Login.css";
 import { useState } from "react";
+import { AuthContext } from './AuthContext';
 
 export default function Login() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -39,55 +41,64 @@ export default function Login() {
         // Handle any errors that occurred during the fetch
         console.error("Error:", error);
       });
+      setIsLoggedIn(true)
   }
   return (
     <>
-      <div className="container">
-        <div className="login-details">
-          <h1>Welcome, login here</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="text"
-              placeholder="Enter your email"
-              onChange={handleChange}
-              name="email"
-              value={formData.email}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              type="text"
-              placeholder="password"
-              onChange={handleChange}
-              name="password"
-              value={formData.password}
-            />
-            <button className="login-button">Login in</button>
-          </form>
+    <div>
+      {
+        isLoggedIn ?(
+          <p>Welcome,{userName}</p>
+        ):(
+          <div className="container">
+            <div className="login-details">
+              <h1>Welcome, login here</h1>
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="text"
+                  placeholder="Enter your email"
+                  onChange={handleChange}
+                  name="email"
+                  value={formData.email}
+                />
+                <label htmlFor="password">Password:</label>
+                <input
+                  type="text"
+                  placeholder="password"
+                  onChange={handleChange}
+                  name="password"
+                  value={formData.password}
+                />
+                <button className="login-button">Login in</button>
+              </form>
 
-          <div>
-            <div className="login-google">
-              <GoogleLogin
-                onSuccess={(CredentialResponse) => {
-                  console.log(CredentialResponse);
-                }}
-                onError={() => {
-                  console.log("login failed");
-                }}
-                useOneTap
-              />
+              <div>
+                <div className="login-google">
+                  <GoogleLogin
+                    onSuccess={(CredentialResponse) => {
+                      console.log(CredentialResponse);
+                    }}
+                    onError={() => {
+                      console.log("login failed");
+                    }}
+                    useOneTap
+                  />
+                </div>
+
+                <span className="login-link">
+                  register here<Link to="/sign-up">Register</Link>
+                </span>
+              </div>
             </div>
 
-            <span className="login-link">
-              register here<Link to="/sign-up">Register</Link>
-            </span>
+            <div className="login-img">
+              <img src={image} alt=" cart icon" width="300px" height="598px" />
+            </div>
           </div>
-        </div>
-
-        <div className="login-img">
-          <img src={image} alt=" cart icon" width="300px" height="598px" />
-        </div>
-      </div>
+        )
+      }
+    </div>
     </>
   );
 }
