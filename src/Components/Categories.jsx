@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from "react-router-dom"
 
 const Categories = () => {
   // Categories data with emojis
@@ -52,8 +53,11 @@ const Categories = () => {
       <Container>
         {categoriesData.map((category) => (
           <div key={category.name}>
+            <Link to="/products">
             <Circle>{category.emoji}</Circle>
             <CategoryName>{category.name}</CategoryName>
+            </Link>
+
           </div>
         ))}
       </Container>
