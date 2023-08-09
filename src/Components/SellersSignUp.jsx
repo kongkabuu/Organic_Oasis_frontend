@@ -1,10 +1,11 @@
-import React, { useState, useContext } from 'react';
-import image from '../assets/login-image.jpeg';
+import React, { useState } from 'react';
+import image from "./Assets/login-image.jpeg";
 import './SellersLogin.css';
-import { AuthContext } from './AuthContext';
+// import { AuthContext } from './AuthContext';
+import { useNavigate } from "react-router-dom"
 
 export default function SignUp() {
-  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     username: '',
@@ -12,12 +13,13 @@ export default function SignUp() {
     password: '',
     password_confirmation: '',
   });
-
   function handleChange(event) {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
+    setFormData((prevFormData) => {
+      return{
+        ...prevFormData,
       [event.target.name]: event.target.value,
-    }));
+      };
+    });
   }
 
   function handleSubmit(e) {
@@ -33,7 +35,10 @@ export default function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        navigate("/")
+
       })
+
       .catch((error) => {
         console.error('Error:', error);
       });

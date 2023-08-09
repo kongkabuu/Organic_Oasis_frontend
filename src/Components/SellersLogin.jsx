@@ -1,22 +1,25 @@
-import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 // import { GoogleLogin } from '@react-oauth/google';
-import image from '../assets/login-image.jpeg';
+import image from './Assets/login-image.jpeg';
 import './SellersLogin.css';
-import { AuthContext } from './AuthContext';
+// import { AuthContext } from './AuthContext';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 export default function SellersLogin() {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   function handleChange(event) {
-    setFormData((prevFormData) => ({
+    setFormData((prevFormData) => {
+      return{
       ...prevFormData,
       [event.target.name]: event.target.value,
-    }));
+      };
+    });
   }
 
   function handleSubmit(e) {
