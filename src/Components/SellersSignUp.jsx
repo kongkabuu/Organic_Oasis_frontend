@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { GoogleLogin } from '@react-oauth/google';
 import image from '../assets/login-image.jpeg';
 import './SellersLogin.css';
 import { AuthContext } from './AuthContext';
 
-export default function SellersLogin() {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+export default function SignUp() {
+  const { isLoggedIn } = useContext(AuthContext);
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     password: '',
+    password_confirmation: '',
   });
 
   function handleChange(event) {
@@ -22,8 +22,7 @@ export default function SellersLogin() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Perform the login using the fetch request
-    fetch('http://127.0.0.1:3000/sellers/login', {
+    fetch('http://127.0.0.1:3000/sellers/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,12 +31,9 @@ export default function SellersLogin() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Handle the response data here, such as setting authentication state
         console.log(data);
-        setIsLoggedIn(true);
       })
       .catch((error) => {
-        // Handle any errors that occurred during the fetch
         console.error('Error:', error);
       });
   }
@@ -45,16 +41,32 @@ export default function SellersLogin() {
   return (
     <div>
       {isLoggedIn ? (
-        <p>Welcome, {userName}</p>
+        <p>You are already logged in.</p>
       ) : (
         <div className="container">
           <div className="login-details">
-            <h1>Welcome, login here</h1>
+            <h1>Register here</h1>
             <form onSubmit={handleSubmit}>
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                placeholder="Enter your Name"
+                onChange={handleChange}
+                name="name"
+                value={formData.name}
+              />
+              <label htmlFor="name">Username:</label>
+              <input
+                type="text"
+                placeholder="Enter your Username"
+                onChange={handleChange}
+                name="username"
+                value={formData.username}
+              />
               <label htmlFor="email">Email:</label>
               <input
                 type="text"
-                placeholder="Enter your email"
+                placeholder="email"
                 onChange={handleChange}
                 name="email"
                 value={formData.email}
@@ -67,26 +79,18 @@ export default function SellersLogin() {
                 name="password"
                 value={formData.password}
               />
-              <button className="login-button">Login in</button>
+              <label htmlFor="password_confirmation">
+                Password confirmation:
+              </label>
+              <input
+                type="text"
+                placeholder="password confirmation"
+                onChange={handleChange}
+                name="password_confirmation"
+                value={formData.password_confirmation}
+              />
+              <button className="login-button">Sign up</button>
             </form>
-
-            <div>
-              <div className="login-google">
-                <GoogleLogin
-                  onSuccess={(CredentialResponse) => {
-                    console.log(CredentialResponse);
-                  }}
-                  onError={() => {
-                    console.log('login failed');
-                  }}
-                  useOneTap
-                />
-              </div>
-
-              <span className="login-link">
-                register here<Link to="/sellers/sign-up">Register</Link>
-              </span>
-            </div>
           </div>
 
           <div className="login-img">
