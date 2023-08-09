@@ -136,6 +136,7 @@ function Header() {
         <CartIcon />
       </CartIconWrapper>
       <Link to="/login">login</Link>
+      <Link to="/sellers/login">sellers</Link>
     </HeaderContainer>
   );
 }
