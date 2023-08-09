@@ -1,19 +1,18 @@
-import Header from "./Header";
-import HeroBanner from "./HeroBanner";
-import Categories from "./Categories";
-
-import Footer from "./Footer";
-import HomeWithSellers from "./HomeWithSellers";
+import React from 'react';
+// import Header from './Components/Header';
+import HeroBanner from './HeroBanner'
+import Categories from './Categories';
+// import Footer from './Components/Footer';
+import HomeWithSellers from './HomeWithSellers';
 
 function HomePage() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <HeroBanner />
       <Categories />
-
       <HomeWithSellers />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

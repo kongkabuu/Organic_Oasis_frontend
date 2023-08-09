@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import Home from "./Home";
-import Sellers from "./Sellers";
+import React from 'react';
+import styled from 'styled-components';
+import Home from './Home';
+import Sellers from './Sellers';
 
 const HomeWithSellersContainer = styled.div`
   text-align: center;
