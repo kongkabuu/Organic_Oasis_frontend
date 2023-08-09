@@ -74,7 +74,53 @@ const SellersPage = () => {
                 Add New Product
               </button>
             </div>
-            {/* Product list and form go here */}
+            <div className="product-form">
+              <h3>Add New Product</h3>
+              <form>
+                <label htmlFor="productName">Product Name</label>
+                <input
+                  type="text"
+                  id="productName"
+                  value={newProductName}
+                  onChange={e => setNewProductName(e.target.value)}
+                />
+
+                <label htmlFor="productDescription">Product Description</label>
+                <textarea
+                  id="productDescription"
+                  value={newProductDescription}
+                  onChange={e => setNewProductDescription(e.target.value)}
+                />
+
+                <label htmlFor="productPrice">Product Price</label>
+                <input
+                  type="number"
+                  id="productPrice"
+                  value={newProductPrice}
+                  onChange={e => setNewProductPrice(e.target.value)}
+                />
+
+                <label htmlFor="productImage">Product Image URL</label>
+                <input
+                  type="text"
+                  id="productImage"
+                  value={newProductImage}
+                  onChange={e => setNewProductImage(e.target.value)}
+                />
+
+                <label htmlFor="productCategory">Product Category</label>
+                <input
+                  type="text"
+                  id="productCategory"
+                  value={newProductCategory}
+                  onChange={e => setNewProductCategory(e.target.value)}
+                />
+
+                <button type="submit" onClick={() => handleAddProduct(seller.id)}>
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         ))}
       </div>
