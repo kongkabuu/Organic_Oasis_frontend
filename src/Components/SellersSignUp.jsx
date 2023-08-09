@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import image from "../Assets/login-image.jpeg";
+import image from "./Assets/login-image.jpeg";
 import './SellersLogin.css';
 // import { AuthContext } from './AuthContext';
 import { useNavigate } from "react-router-dom"

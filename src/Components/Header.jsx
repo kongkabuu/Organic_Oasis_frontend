@@ -1,13 +1,16 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "./Assets/logo.webp";
-import styled from "styled-components";
-import { IoSearch } from "react-icons/io5";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Login from "./Login";
+import React, { useState } from 'react';
+import logo from './Assets/Fresh.jpg';
+import styled from 'styled-components';
+import { IoSearch } from 'react-icons/io5';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+//import Profile from './Profile'; // Import the Profile component
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link } from 'react-router-dom';
 
 const LogoImage = styled.img`
-  width: 5rem;
+  width: 10rem;
+  height:5rem;
+  margin-right: 5cm;
 `;
 
 const SearchBarContainer = styled.div`
@@ -28,17 +31,18 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 80px;
-  padding: 0 2rem;
+  padding: 0 9rem;
   background-color: var(--white-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0.1cm;
 
   /* Add styles to center the elements */
   ${SearchBarContainer} {
-    margin-right: 1.5rem; /* Space between SearchBar and Profile */
+    margin-left: 15rem; /* Space between SearchBar and Profile */
   }
 
   ${CartIconWrapper} {
-    margin-left: 1.5rem; /* Space between Profile and ShoppingCartIcon */
+    margin-left: 20rem; /* Space between Profile and ShoppingCartIcon */
   }
 `;
 
@@ -58,8 +62,10 @@ const SearchButton = styled.button`
 `;
 
 const CartIcon = styled(ShoppingCartIcon)`
-  color: #19c048;
-  margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
+  color:#19c048 ;
+  margin-top: 0.01cm;
+  transform: scale(1.1);
+  margin-left: 2cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
 
 const SearchBarForm = styled.form`
@@ -97,6 +103,13 @@ const SearchIcon = styled(IoSearch)`
   align-items: center;
 `;
 
+const GreenProfileIcon = styled(AccountCircleIcon)`
+  color: #19c048; /* Set the color to the specified green */
+  width: 9.4rem; /* Increase the width to make the diameter 1cm bigger */
+  margin-left: 1cm;
+  height: 9.4rem; /* Increase the height to make the diameter 1cm bigger */
+`;
+
 function SearchBar({ onSubmit, value, onChange }) {
   return (
     <SearchBarContainer>
@@ -115,18 +128,23 @@ function SearchBar({ onSubmit, value, onChange }) {
 }
 
 function Header() {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
+  //const navigate=useNavigate()
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
   const handleSearchSubmit = (event) => {
     event.preventDefault();
+    onSearch(searchQuery);
     // Perform the search action here with the 'searchQuery' value
-    console.log("Searching for:", searchQuery);
+    console.log('Searching for:', searchQuery);
   };
+  // const handleClick=() =>{
+  //   navigate('/profile')
+  // }
   return (
     <HeaderContainer>
-      <LogoImage src={logo} alt="Logo" />
+      <LogoImage src={logo} alt="Fresh" />
       <SearchBar
         onSubmit={handleSearchSubmit}
         value={searchQuery}
@@ -135,8 +153,10 @@ function Header() {
       <CartIconWrapper>
         <CartIcon />
       </CartIconWrapper>
-      <Link to="/login">login</Link>
-      <Link to="/sellers/login">sellers</Link>
+      <Link to="/profile">
+      <GreenProfileIcon />
+
+</Link>
     </HeaderContainer>
   );
 }
