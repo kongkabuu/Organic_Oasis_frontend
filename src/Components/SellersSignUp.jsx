@@ -46,7 +46,7 @@ export default function SignUp() {
       ) : (
         <div className="container">
           <div className="login-details">
-            <h1>Register here</h1>
+            <h1>Register as a Seller here</h1>
             <form onSubmit={handleSubmit}>
               <label htmlFor="name">Name:</label>
               <input
