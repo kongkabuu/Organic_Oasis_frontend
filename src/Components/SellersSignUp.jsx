@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import image from "./Assets/login-image.jpeg";
+import image from "../Assets/login-image.jpeg";
 import './SellersLogin.css';
 // import { AuthContext } from './AuthContext';
 import { useNavigate } from "react-router-dom"
@@ -46,9 +46,6 @@ export default function SignUp() {
 
   return (
     <div>
-      {isLoggedIn ? (
-        <p>You are already logged in.</p>
-      ) : (
         <div className="container">
           <div className="login-details">
             <h1>Register as a Seller here</h1>
@@ -103,7 +100,6 @@ export default function SignUp() {
             <img src={image} alt=" cart icon" width="300px" height="598px" />
           </div>
         </div>
-      )}
     </div>
   );
 }

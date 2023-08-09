@@ -37,7 +37,9 @@ export default function SellersLogin() {
       .then((data) => {
         // Handle the response data here, such as setting authentication state
         console.log(data);
-        setIsLoggedIn(true);
+
+        navigate("/")
+
       })
       .catch((error) => {
         // Handle any errors that occurred during the fetch
@@ -47,9 +49,7 @@ export default function SellersLogin() {
 
   return (
     <div>
-      {isLoggedIn ? (
         <p>Welcome, {userName}</p>
-      ) : (
         <div className="container">
           <div className="login-details">
             <h1>Welcome, Seller login here</h1>
@@ -96,7 +96,6 @@ export default function SellersLogin() {
             <img src={image} alt=" cart icon" width="300px" height="598px" />
           </div>
         </div>
-      )}
     </div>
   );
 }
