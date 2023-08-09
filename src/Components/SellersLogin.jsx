@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
-// import { GoogleLogin } from '@react-oauth/google';
 import image from './Assets/login-image.jpeg';
 import './SellersLogin.css';
-// import { AuthContext } from './AuthContext';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
