@@ -7,6 +7,7 @@ export default function SignUp() {
   const { isLoggedIn } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     name: '',
+    username: '',
     email: '',
     password: '',
     password_confirmation: '',

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 import image from '../assets/login-image.jpeg';
 import './SellersLogin.css';
 import { AuthContext } from './AuthContext';
@@ -49,7 +49,7 @@ export default function SellersLogin() {
       ) : (
         <div className="container">
           <div className="login-details">
-            <h1>Welcome, login here</h1>
+            <h1>Welcome, Seller login here</h1>
             <form onSubmit={handleSubmit}>
               <label htmlFor="email">Email:</label>
               <input
@@ -71,7 +71,7 @@ export default function SellersLogin() {
             </form>
 
             <div>
-              <div className="login-google">
+              {/* <div className="login-google">
                 <GoogleLogin
                   onSuccess={(CredentialResponse) => {
                     console.log(CredentialResponse);
@@ -81,7 +81,7 @@ export default function SellersLogin() {
                   }}
                   useOneTap
                 />
-              </div>
+              </div> */}
 
               <span className="login-link">
                 register here<Link to="/sellers/sign-up">Register</Link>

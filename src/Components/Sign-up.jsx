@@ -22,7 +22,7 @@ export default function SignUp() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://127.0.0.1:3000/register", {
+    fetch("http://127.0.0.1:3000/sellers/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function SignUp() {
         ) : (
           <div className="container">
             <div className="login-details">
-              <h1>Register here</h1>
+              <h1>Register as a Seller here</h1>
               <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Name:</label>
                 <input
