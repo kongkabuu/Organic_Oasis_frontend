@@ -1,8 +1,8 @@
-import { useState } from "react";
-import styled from "styled-components";
-import wImage from "./Assets/w.jpg";
-import gImage from "./Assets/g.jpeg";
-import bImage from "./Assets/b.jpg";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import wImage from './Assets/w.jpg';
+import gImage from './Assets/g.jpeg';
+import bImage from './Assets/b.jpg';
 
 const SellersContainer = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ const CustomSVG = styled.svg`
 `;
 
 const ShapeFillPath = styled.path`
-  fill: #c6ffc1; /* Updated to mild light green */
+  fill: #D6F6D5; /* Updated to mild light green */
 `;
 
 const CirclesContainer = styled.div`
@@ -67,7 +67,7 @@ const PartnerButton = styled.button`
   bottom: 0;
   right: 0;
   padding: 0.5rem 1rem;
-  background-color: #19c048;
+  background-color: #19C048;
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -114,7 +114,7 @@ const SubmitButton = styled.button`
 `;
 
 const CloseButton = styled(SubmitButton)`
-  background-color: #19c048;
+  background-color: #19C048;
   margin-right: 10px;
 `;
 
@@ -139,10 +139,7 @@ const Sellers = () => {
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
-          <ShapeFillPath
-            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-            className="shape-fill"
-          ></ShapeFillPath>
+          <ShapeFillPath d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></ShapeFillPath>
         </CustomSVG>
       </CustomShapeDivider>
       <CirclesContainer>
@@ -159,9 +156,7 @@ const Sellers = () => {
           <CircleText>Deliver For Us</CircleText>
         </Circle>
       </CirclesContainer>
-      <PartnerButton onClick={handlePartnerClick}>
-        Partner with us
-      </PartnerButton>
+      <PartnerButton onClick={handlePartnerClick}>Partner with us</PartnerButton>
       {showForm && (
         <PopUpForm>
           <InputGroup>
