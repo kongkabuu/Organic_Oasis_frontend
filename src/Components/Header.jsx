@@ -151,7 +151,9 @@ function Header() {
         onChange={handleInputChange}
       />
       <CartIconWrapper>
+      <Link to="/cart"> {/* Point to your cart route */}
         <CartIcon />
+        </Link>
       </CartIconWrapper>
       <Link to="/profile">
       <GreenProfileIcon />
