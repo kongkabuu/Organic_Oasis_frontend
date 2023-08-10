@@ -155,8 +155,11 @@ function Header() {
         onChange={handleInputChange}
       />
             <RightSection>
+
         <CartIconWrapper>
+        <Link to="/cart">
           <CartIcon />
+          </Link>
         </CartIconWrapper>
 
           <Link to="/profile">

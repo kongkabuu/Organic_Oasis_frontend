@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 // import Footer from './Components/Footer';
 const PageWrapper = styled.div`
   display: flex;
@@ -58,20 +58,35 @@ const AddToCartButton = styled.button`
   cursor: pointer;
 `;
 
-
-
-
 const Products = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-
     fetch(`http://127.0.0.1:3000/products?category=${category}`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error));
   }, [category]);
+
+  const handleAddToCart = (productId) => {
+    fetch('http://127.0.0.1:3000/order_items', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        product_id: productId,
+        quantity: 1, // You can adjust the quantity as needed
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Product added to cart:', data);
+        window.location.href = '/cart'; // Navigate to the cart page
+      })
+      .catch((error) => console.error('Error adding to cart:', error));
+  };
 
   return (
     <PageWrapper>
@@ -79,18 +94,22 @@ const Products = () => {
       <ProductContainer>
         {products.map((product) => (
           <ProductCard key={product.id}>
+             <Link to={`/product/${product.id}`}>
             <ProductTitle>{product.name}</ProductTitle>
             <ProductDescription>{product.description}</ProductDescription>
             <ProductPrice>Price: ${product.price}</ProductPrice>
-            <AddToCartButton>Add to Cart</AddToCartButton>
+            </Link>
+            <AddToCartButton onClick={() => handleAddToCart(product.id)}>
+              Add to Cart
+            </AddToCartButton>
           </ProductCard>
         ))}
       </ProductContainer>
     </PageWrapper>
   );
 };
-  export default Products;
 
+export default Products;
 
 
 //   return (

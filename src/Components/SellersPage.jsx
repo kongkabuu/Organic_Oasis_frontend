@@ -4,7 +4,10 @@ import './SellersPage.css';
 import { useAuth } from './AuthContext';
 
 export default function SellersPage({ loggedInUserId }) {
-  const { authToken } = useAuth();
+  const { isLoggedIn } = useAuth(); // Use isLoggedIn from useAuth
+
+
+
   const [seller, setSeller] = useState({});
   const [newProductName, setNewProductName] = useState('');
   const [newProductDescription, setNewProductDescription] = useState('');
@@ -12,17 +15,18 @@ export default function SellersPage({ loggedInUserId }) {
   const [newProductImage, setNewProductImage] = useState('');
   const [newProductCategory, setNewProductCategory] = useState('');
 
-  // useEffect(() => {
-  //   if  (user)  {
-  //     axios.get(`http://127.0.0.1:3000/users/${user.Id}`)
-  //       .then(response => {
-  //         setSeller(response.data);
-  //       })
-  //       .catch(error => {
-  //         console.error('Error fetching seller:', error);
-  //       });
-  //   }
-  // }, [user]);
+  useEffect(() => {
+
+      axios.get(`http://127.0.0.1:3000/users`)
+        .then(response => {
+          setSeller(response.data);
+
+        })
+        .catch(error => {
+          console.error('Error fetching seller:', error);
+        });
+    }
+  , []);
 
   const handleAddProduct = () => {
     // ... your existing logic for adding a new product
@@ -37,9 +41,9 @@ export default function SellersPage({ loggedInUserId }) {
               <div className="seller-avatar">
                 <img src={seller.image && seller.image.url} alt={seller.name} />
               </div>
-              <div className="seller-details">
-                <h1 className="seller-name">{seller.name}</h1>
-                <p className="seller-contact">Contact: {seller.contacts}</p>
+              <div className="user-details">
+                <h1 className="user-name">{seller.name}</h1>
+                <p className="user-contact">Contact: {seller.contacts}</p>
                 {/* Add other seller information as needed */}
               </div>
             </div>

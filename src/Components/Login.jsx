@@ -36,7 +36,7 @@ export default function Login() {
       .then((data) => {
         // Handle the response data here, such as setting authentication state
         console.log(data);
-
+        localStorage.setItem("loggedInUser", JSON.stringify(data));
           navigate("/")
 
       })

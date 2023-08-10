@@ -8,6 +8,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    role:"",
     password: "",
     password_confirmation: "",
   });
@@ -65,14 +66,7 @@ export default function SignUp() {
               name="username"
               value={formData.username}
             />
-            <label htmlFor="user_type">customer or seller:</label>
-            <input
-              type="text"
-              placeholder="Enter your Name"
-              onChange={handleChange}
-              name="user_type"
-              value={formData.user_type}
-            />
+
             <label htmlFor="email">Email:</label>
             <input
               type="text"
@@ -80,6 +74,14 @@ export default function SignUp() {
               onChange={handleChange}
               name="email"
               value={formData.email}
+            />
+              <label htmlFor="role">Role:</label>
+            <input
+              type="text"
+              placeholder="role"
+              onChange={handleChange}
+              name="role"
+              value={formData.role}
             />
             <label htmlFor="password">Password:</label>
             <input

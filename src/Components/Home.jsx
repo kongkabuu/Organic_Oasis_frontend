@@ -107,7 +107,7 @@ export default function Home() {
             {[0, 1, 2].map((colIndex) => (
               <CardColumn key={colIndex}>
                 <CardContainer>
-                  <CardImage component="img" alt={featuredProducts[rowIndex * 3 + colIndex].name} image={featuredProducts[rowIndex * 3 + colIndex].image} />
+                <CardImage component="img" alt={product.name} image={`http://localhost:3000${product.image.url}`} />
                   <CardContent>
                     <CardName gutterBottom variant="h5" component="div">
                       {featuredProducts[rowIndex * 3 + colIndex].name}
