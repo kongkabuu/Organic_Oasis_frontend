@@ -102,6 +102,10 @@ const SearchIcon = styled(IoSearch)`
   justify-content: center;
   align-items: center;
 `;
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const GreenProfileIcon = styled(AccountCircleIcon)`
   color: #19c048; /* Set the color to the specified green */
@@ -150,15 +154,26 @@ function Header() {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <CartIconWrapper>
-        <CartIcon />
-      </CartIconWrapper>
-      <Link to="/profile">
-      <GreenProfileIcon />
+            <RightSection>
+        <CartIconWrapper>
+          <CartIcon />
+        </CartIconWrapper>
 
+          <Link to="/profile">
+            <GreenProfileIcon />
+            </Link>
+
+
+<Link to="/login" style={{ marginLeft: '1rem' }}>
+  Login
 </Link>
+
+
+
+      </RightSection>
     </HeaderContainer>
   );
 }
+
 
 export default Header;

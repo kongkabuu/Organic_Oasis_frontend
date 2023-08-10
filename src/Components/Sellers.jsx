@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import wImage from './Assets/w.jpg';
 import gImage from './Assets/g.jpeg';
 import bImage from './Assets/b.jpg';
+import { Link } from 'react-router-dom';
 
 const SellersContainer = styled.div`
   position: relative;
@@ -143,6 +144,7 @@ const Sellers = () => {
         </CustomSVG>
       </CustomShapeDivider>
       <CirclesContainer>
+      <Link to="/sellers" style={{ marginLeft: '1rem' }}>Seller</Link>
         <Circle>
           <img src={wImage} alt="Circle 1" />
           <CircleText>Farm For Us</CircleText>

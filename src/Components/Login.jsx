@@ -49,7 +49,7 @@ export default function Login() {
     <>
       <div className="container">
         <div className="login-details">
-          <h1>Welcome, login here</h1>
+          <h1>Welcome, Login here</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email:</label>
             <input
@@ -58,6 +58,14 @@ export default function Login() {
               onChange={handleChange}
               name="email"
               value={formData.email}
+            />
+             <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              placeholder="Enter your username"
+              onChange={handleChange}
+              name="username"
+              value={formData.username}
             />
             <label htmlFor="password">Password:</label>
             <input

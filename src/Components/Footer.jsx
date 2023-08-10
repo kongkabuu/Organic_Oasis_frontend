@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+
 const FooterContainer = styled.footer`
   background-color: #000;
   color: #19c048;
@@ -34,16 +35,16 @@ const LinkList = styled.ul`
 
 const LinkItem = styled.li`
   margin-bottom: 0.5rem;
-`;
+ `;
 
-const Link = styled.a`
-  color: #19c048;
+ const Link = styled.a`
+   color: #19c048;
   text-decoration: none;
-  transition: color 0.3s;
+   transition: color 0.3s;
   &:hover {
-    color: #14a340;
+     color: #14a340;
   }
-`;
+ `;
 
 const Text = styled.p`
   margin-bottom: 0.5rem;
@@ -131,6 +132,9 @@ const Footer = () => {
           <EmailSection>
             <EmailInput type="email" placeholder="Your Email Address" />
             <SubscribeButton>Subscribe</SubscribeButton>
+
+
+
           </EmailSection>
         </Column>
       </FooterContent>

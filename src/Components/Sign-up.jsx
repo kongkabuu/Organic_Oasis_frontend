@@ -57,13 +57,21 @@ export default function SignUp() {
               name="name"
               value={formData.name}
             />
-            <label htmlFor="name">username:</label>
+            <label htmlFor="name">Username:</label>
             <input
               type="text"
               placeholder="Enter your Name"
               onChange={handleChange}
               name="username"
               value={formData.username}
+            />
+            <label htmlFor="user_type">customer or seller:</label>
+            <input
+              type="text"
+              placeholder="Enter your Name"
+              onChange={handleChange}
+              name="user_type"
+              value={formData.user_type}
             />
             <label htmlFor="email">Email:</label>
             <input
