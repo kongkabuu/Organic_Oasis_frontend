@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -8,6 +8,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
+
+import juice from "./Assets/juice.jpg";
+import bread from "./Assets/bread.jpg";
+import r from "./Assets/r.jpg";
+import vegetables from "./Assets/vegetables.jpg";
+import spices from "./Assets/spices.jpg";
+import milk from "./Assets/milk.jpg";
 
 const HomeContainer = styled.div`
   display: block;
@@ -66,49 +73,100 @@ const CardColumn = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-
 export default function Home() {
-  const [featuredProducts, setFeaturedProducts] = useState([]);
-  useEffect(() => {
-    fetch('http://127.0.0.1:3000/products')
-      .then((response) => response.json())
-      .then((data) => setFeaturedProducts(data))
-      .catch((error) => console.error('Error fetching data:', error));
-  }, []);
-
+  // Sample data for 6 cards (replace with your actual data)
+  const featuredProducts = [
+    { id: 1, name: "Juice Lava Price:$4.99", image: juice, likes: 95 },
+    { id: 2, name: "Baked Wonders Price:$3.99", image: bread, likes: 85 },
+    { id: 3, name: "SteakHouse Price:$5.99", image: r, likes: 90 },
+    { id: 4, name: "Organic Mart Price:$3.99", image: vegetables, likes: 92 },
+    { id: 5, name: "Spice Delight Price:$1.99", image: spices, likes: 89 },
+    { id: 6, name: "Creamy Creations Price:$7.0", image: milk, likes: 88 },
+  ];
 
   return (
     <HomeContainer>
       <FeaturedProductsText>Featured Products</FeaturedProductsText>
-      <CardGrid>
-        {Array.isArray(featuredProducts) ? (
-          featuredProducts.map((product) => (
-            <CardColumn key={product.id}>
-              <CardContainer>
-                <CardImage component="img" alt={product.name} image={`http://localhost:3000${product.image.url}`} />
-                <CardContent>
-                  <CardName gutterBottom variant="h5" component="div">
-                    {product.name}
-                  </CardName>
-                  <IconContainer>
-                    <ThumbUpAltOutlinedIcon />
-                    <PercentageText>{product.likes}%</PercentageText>
-                  </IconContainer>
-                </CardContent>
-                <CardActions>
-                  <ActionButton>
-                    <ThumbUpAltOutlinedIcon />
-                  </ActionButton>
-                  <Button size="small">:heavy_plus_sign:</Button>
-                </CardActions>
-              </CardContainer>
-            </CardColumn>
-          ))
-        ) : (
-          <div>Loading...</div>
-        )}
-      </CardGrid>
+      <div>
+        {[0, 1].map((rowIndex) => (
+          <CardRow key={rowIndex}>
+            {[0, 1, 2].map((colIndex) => (
+              <CardColumn key={colIndex}>
+                <CardContainer>
+                  <CardImage
+                    component="img"
+                    alt={featuredProducts[rowIndex * 3 + colIndex].name}
+                    image={featuredProducts[rowIndex * 3 + colIndex].image}
+                  />
+                  <CardContent>
+                    <CardName gutterBottom variant="h5" component="div">
+                      {featuredProducts[rowIndex * 3 + colIndex].name}
+                    </CardName>
+                    <IconContainer>
+                      <ThumbUpAltOutlinedIcon />
+                      <PercentageText>
+                        {featuredProducts[rowIndex * 3 + colIndex].likes}%
+                      </PercentageText>
+                    </IconContainer>
+                  </CardContent>
+                  <CardActions>
+                    <ActionButton>
+                      <ThumbUpAltOutlinedIcon />
+                    </ActionButton>
+                    <Button size="small">➕</Button>
+                  </CardActions>
+                </CardContainer>
+              </CardColumn>
+            ))}
+          </CardRow>
+        ))}
+      </div>
     </HomeContainer>
   );
 }
+
+
+// export default function Home() {
+//   const [featuredProducts, setFeaturedProducts] = useState([]);
+//   useEffect(() => {
+//     fetch('http://127.0.0.1:3000/products')
+//       .then((response) => response.json())
+//       .then((data) => setFeaturedProducts(data))
+//       .catch((error) => console.error('Error fetching data:', error));
+//   }, []);
+
+
+//   return (
+//     <HomeContainer>
+//       <FeaturedProductsText>Featured Products</FeaturedProductsText>
+//       <CardGrid>
+//         {Array.isArray(featuredProducts) ? (
+//           featuredProducts.map((product) => (
+//             <CardColumn key={product.id}>
+//               <CardContainer>
+//                 <CardImage src={`http://localhost:3000/products`} />
+//                 <CardContent>
+//                   <CardName gutterBottom variant="h5" component="div">
+//                     {product.name}
+//                   </CardName>
+//                   <IconContainer>
+//                     <ThumbUpAltOutlinedIcon />
+//                     <PercentageText>{product.likes}%</PercentageText>
+//                   </IconContainer>
+//                 </CardContent>
+//                 <CardActions>
+//                   <ActionButton>
+//                     <ThumbUpAltOutlinedIcon />
+//                   </ActionButton>
+//                   <Button size="small">:heavy_plus_sign:</Button>
+//                 </CardActions>
+//               </CardContainer>
+//             </CardColumn>
+//           ))
+//         ) : (
+//           <div>Loading...</div>
+//         )}
+//       </CardGrid>
+//     </HomeContainer>
+//   );
+// }
