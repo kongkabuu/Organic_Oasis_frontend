@@ -16,9 +16,13 @@ function App() {
     // <AuthProvider>
     <div>
           <Header/>
+
+
           <Routes>
             <Route path="/sellers" element={<SellersPage />} />
           </Routes>
+
+
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/cart" element={<Cart />}/>

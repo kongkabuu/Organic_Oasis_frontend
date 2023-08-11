@@ -49,7 +49,7 @@ const ProductDetails = () => {
 
   return (
     <ProductDetailsWrapper>
-      <ProductImage src={product.image.url} alt={product.name} />
+      <ProductImage src={`http://localhost:3000${product.image.url}`} alt={product.name} />
       <ProductName>{product.name}</ProductName>
       <ProductDescription>{product.desc}</ProductDescription>
       <ProductPrice>Price: ${product.price}</ProductPrice>
