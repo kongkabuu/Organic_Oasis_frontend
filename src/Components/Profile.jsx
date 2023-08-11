@@ -1,10 +1,8 @@
-
 import { LoadingButton } from '@mui/lab';
 import { Avatar, Box, Container, Grid, TextField, Typography } from '@mui/material';
 import { useState, useContext } from 'react';
 //import { AuthContext } from '../context';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { FormikProvider, useFormik } from 'formik';
 const Profile = () => {
   //const { user } = useContext(AuthContext);
   const user={
@@ -68,7 +66,7 @@ const Profile = () => {
           alignItems: 'center',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: '#19c048', width: '6rem', height: '6rem'  }}>
+        <Avatar sx={{ m: 1, bgcolor: '#19C048', width: '6rem', height: '6rem'  }}>
           {/* <LockOutlinedIcon /> */}
         </Avatar>
         <Typography component="h1" variant="h5">
