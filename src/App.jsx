@@ -11,6 +11,8 @@ import SellersPage from  './Components/SellersPage';
 import Cart from './Components/Cart';
 import ProductDetails from './Components/ProductDetails';
 
+
+
 function App() {
   return (
     // <AuthProvider>
@@ -29,6 +31,8 @@ function App() {
             <Route path="/cart" element={<Cart />}/>
             <Route path="/profile" element={<Profile/>}/>
             {/* <Route path="/sellers" element={<SellersPage />} /> */}
+
+             <Route path="/products" element={<Products/>}/>
              <Route path="/products" element={<Products/>}/>
             <Route path="/products/:category" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetails />} />

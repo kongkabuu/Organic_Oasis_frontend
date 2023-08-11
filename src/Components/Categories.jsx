@@ -5,14 +5,15 @@ import {Link} from "react-router-dom"
 const Categories = () => {
   // Categories data with emojis
   const categoriesData = [
-    { name: 'Meat', emoji: '🥩' },
-    { name: 'Beverage', emoji: '🍹' },
-    { name: 'Bakery', emoji: '🍞' },
+     { name: 'Meat', emoji: '🥩' },
+     { name: 'Beverage', emoji: '🍹' },
+     { name: 'Bakery', emoji: '🍞' },
     { name: 'Vegetables', emoji: '🥬' },
     { name: 'Cereals', emoji: '🍚' },
     { name: 'Species', emoji: '🧂' },
     { name: 'Dairy', emoji: '🧀' },
   ];
+
 
   // Styled Circle component
   const Circle = styled.div`
@@ -53,10 +54,10 @@ const Categories = () => {
     <div>
       <h1 style={{ color: '#19C048', textAlign: 'center' }}>Categories</h1>
       <Container>
-        {categoriesData.map((category) => (
+         {categoriesData.map((category) => (
           <div key={category.name}>
             <Link to="/products">
-            <Circle>{category.emoji}</Circle>
+            <Circle>{category.em}</Circle>
             <CategoryName>{category.name}</CategoryName>
             </Link>
 

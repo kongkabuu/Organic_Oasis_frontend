@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+import { useCart } from './CartContext';
 
 const ProductDetailsWrapper = styled.div`
   display: flex;
@@ -46,6 +47,16 @@ const AddToCartButton = styled.button`
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const { addToCart, cartItems } = useCart();
+
+  // const handleAddToCart = (productId) => {
+  //   const selectedProduct = {
+  //     ...product,
+  //     id: productId
+  //   };
+  //   setCartItems(prevCartItems => [...prevCartItems, selectedProduct]);
+  // };
+
 
   useEffect(() => {
     fetch(`http://127.0.0.1:3000/products/${id}`)
@@ -54,6 +65,11 @@ const ProductDetails = () => {
       .catch((error) => console.error('Error fetching product details:', error));
   }, [id]);
 
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product); // Use the addToCart function from the context
+    }
+  };
   if (!product) return <div>Loading...</div>;
 
   return (
