@@ -105,7 +105,7 @@ const InputGroup = styled.div`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #19C048c;
+  background-color: #19C048;
   color: #fff;
   border: none;
   border-radius: 5px;

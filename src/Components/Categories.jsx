@@ -41,11 +41,13 @@ const Categories = () => {
 
   // Styled CategoryName component
   const CategoryName = styled.div`
-    font-weight: bold;
-      margin-top: 1.5cm; /* Move up by 1 cm */
-    margin-left: 1.4cm; /* Move to the right by 1 cm */
-    transform: translate(1cm, -1cm); /* Apply the translation */
-  `;
+  font-weight: bold;
+  margin-top: 1.5cm; /* Move up by 1 cm */
+  margin-left: 1.4cm; /* Move to the right by 1 cm */
+  transform: translate(1cm, -1cm); /* Apply the translation */
+  font-size: 1.2rem; /* Increase the font size */
+  color: black; /* Set the text color to black */
+`;
 
   return (
     <div>

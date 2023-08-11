@@ -1,4 +1,4 @@
-import {  Routes, Route } from "react-router-dom";
+import {  BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { AuthProvider } from "./Components/AuthContext"
 import Header from './Components/Header';
 import HomePage from "./Components/HomePage";
@@ -14,6 +14,7 @@ import ProductDetails from './Components/ProductDetails';
 function App() {
   return (
     // <AuthProvider>
+    <Router>
     <div>
           <Header/>
 
@@ -37,6 +38,7 @@ function App() {
           </Routes>
           <Footer />
     </div>
+    </Router>
     // </AuthProvider>
   );
 }

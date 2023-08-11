@@ -33,6 +33,15 @@ const ProductSeller = styled.p`
   font-size: 16px;
   margin-bottom: 20px;
 `;
+const AddToCartButton = styled.button`
+  font-size: 16px;
+  background-color: #19C048;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+`;
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -54,6 +63,9 @@ const ProductDetails = () => {
       <ProductDescription>{product.desc}</ProductDescription>
       <ProductPrice>Price: ${product.price}</ProductPrice>
       <ProductSeller>Seller: {product.user_id}</ProductSeller>
+      <AddToCartButton onClick={() => handleAddToCart(product.id)}>
+              Add to Cart
+            </AddToCartButton>
     </ProductDetailsWrapper>
   );
 };

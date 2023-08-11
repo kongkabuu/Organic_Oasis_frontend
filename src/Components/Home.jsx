@@ -1,5 +1,5 @@
 
-// import React, { useState, useEffect } from 'react';
+ import React  from 'react';
 import styled from 'styled-components';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -69,6 +69,13 @@ const CardGrid = styled.div`
   justify-items: center;
   margin-bottom: 20px;
 `;
+
+const CardRow = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
 const CardColumn = styled.div`
   display: flex;
   flex-direction: column;
@@ -76,10 +83,11 @@ const CardColumn = styled.div`
 export default function Home() {
   // Sample data for 6 cards (replace with your actual data)
   const featuredProducts = [
-    { id: 1, name: "Juice Lava Price:$4.99", image: juice, likes: 95 },
+
+    { id: 4, name: "Organic Mart Price:$3.99", image: vegetables, likes: 92 },
     { id: 2, name: "Baked Wonders Price:$3.99", image: bread, likes: 85 },
     { id: 3, name: "SteakHouse Price:$5.99", image: r, likes: 90 },
-    { id: 4, name: "Organic Mart Price:$3.99", image: vegetables, likes: 92 },
+    { id: 1, name: "Juice Lava Price:$4.99", image: juice, likes: 95 },
     { id: 5, name: "Spice Delight Price:$1.99", image: spices, likes: 89 },
     { id: 6, name: "Creamy Creations Price:$7.0", image: milk, likes: 88 },
   ];
