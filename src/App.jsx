@@ -10,7 +10,7 @@ import Products from './Components/Products';
 import SellersPage from  './Components/SellersPage';
 import Cart from './Components/Cart';
 // import PaymentForm from './Components/PaymentForm';
-import ProductDetails from './Components/ProductDetails';
+// import ProductDetails from './Components/ProductDetails';
 
 function App() {
   return (
