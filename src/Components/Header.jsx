@@ -3,13 +3,12 @@ import logo from './Assets/Fresh.jpg';
 import styled from 'styled-components';
 import { IoSearch } from 'react-icons/io5';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-//import Profile from './Profile'; // Import the Profile component
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 
 const LogoImage = styled.img`
   width: 10rem;
-  height:5rem;
+  height: 5rem;
   margin-right: 5cm;
 `;
 
@@ -42,7 +41,7 @@ const HeaderContainer = styled.div`
   }
 
   ${CartIconWrapper} {
-    margin-left: 20rem; /* Space between Profile and ShoppingCartIcon */
+    margin-left: 12rem; /* Space between Profile and ShoppingCartIcon */
   }
 `;
 
@@ -62,9 +61,9 @@ const SearchButton = styled.button`
 `;
 
 const CartIcon = styled(ShoppingCartIcon)`
-  color:#19c048 ;
+  color: #19c048;
   margin-top: 0.01cm;
-  transform: scale(1.1); 
+  transform: scale(1.1);
   margin-left: 2cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
 
@@ -102,12 +101,33 @@ const SearchIcon = styled(IoSearch)`
   justify-content: center;
   align-items: center;
 `;
+const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const GreenProfileIcon = styled(AccountCircleIcon)`
   color: #19c048; /* Set the color to the specified green */
   width: 9.4rem; /* Increase the width to make the diameter 1cm bigger */
-  margin-left: 1cm; 
+  margin-left: 1cm;
   height: 9.4rem; /* Increase the height to make the diameter 1cm bigger */
+`;
+
+const LoginButton = styled(Link)`
+  margin-left: 1rem;
+  padding: 0.2rem 0.8rem;
+  background-color: #19c048;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none; /* Remove default link styling */
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: #128a32; /* Darker color on hover */
+  }
 `;
 
 function SearchBar({ onSubmit, value, onChange }) {
@@ -129,19 +149,17 @@ function SearchBar({ onSubmit, value, onChange }) {
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
-  //const navigate=useNavigate()
+
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    onSearch(searchQuery); 
     // Perform the search action here with the 'searchQuery' value
     console.log('Searching for:', searchQuery);
   };
-  // const handleClick=() =>{
-  //   navigate('/profile')
-  // }
+
   return (
     <HeaderContainer>
       <LogoImage src={logo} alt="Fresh" />
@@ -150,13 +168,21 @@ function Header() {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <CartIconWrapper>
-        <CartIcon />
-      </CartIconWrapper>
-      <Link to="/profile">
-      <GreenProfileIcon />
-
-</Link>
+      <RightSection>
+        <CartIconWrapper>
+          <Link to="/cart">
+            <CartIcon />
+            {/* <Link to="/payment">
+            <LoginButton>Payment</LoginButton>
+          </Link> */}
+          </Link>
+          
+        </CartIconWrapper>
+        <Link to="/profile">
+          <GreenProfileIcon />
+        </Link>
+        <LoginButton to="/login">Login</LoginButton>
+      </RightSection>
     </HeaderContainer>
   );
 }
