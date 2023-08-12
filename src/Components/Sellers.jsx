@@ -25,7 +25,9 @@ const CustomSVG = styled.svg`
 `;
 
 const ShapeFillPath = styled.path`
-  fill: #c6ffc1; /* Updated to mild light green */
+  fill: #D6F6D5; /* Updated to mild light green */
+
+
 `;
 
 const CirclesContainer = styled.div`

@@ -90,8 +90,15 @@ export default function Home() {
     { id: 6, name: "Creamy Creations Price:$7.0", image: milk, likes: 88 },
   ];
 
+  const handleSearch = (query) => {
+    // Perform the search action using the 'query' value
+    console.log('Searching for:', query);
+    // You can implement your search logic here and update the product list accordingly
+  };
+
   return (
     <HomeContainer>
+      
       <FeaturedProductsText>Featured Products</FeaturedProductsText>
       <div>
         {[0, 1].map((rowIndex) => (
