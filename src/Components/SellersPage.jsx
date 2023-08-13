@@ -12,6 +12,7 @@ const SellersPage = () => {
 
   useEffect(() => {
     axios.get('https://organic-5ku0.onrender.com/sellers') // Update the URL as needed
+
       .then(response => {
         setSellers(response.data);
       })
@@ -30,6 +31,7 @@ const SellersPage = () => {
     };
 
     axios.post(`https://organic-5ku0.onrender.com/sellers/${sellerId}/products`, newProduct)
+
       .then(response => {
         // Update the sellers state with the new product
         const updatedSellers = sellers.map(seller => {

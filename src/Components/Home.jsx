@@ -98,7 +98,6 @@ export default function Home() {
 
   return (
     <HomeContainer>
-
       <FeaturedProductsText>Featured Products</FeaturedProductsText>
       <div>
         {[0, 1].map((rowIndex) => (

@@ -10,7 +10,7 @@ const PageWrapper = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  display: flex;
+   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
@@ -58,6 +58,9 @@ const AddToCartButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   align-self: center;
+
+ 
+
 `;
 
 const Products = () => {
@@ -65,6 +68,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+  
     fetch(`https://organic-5ku0.onrender.com/products?category=${category}`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
@@ -116,44 +120,5 @@ const Products = () => {
 
 export default Products;
 
-//   return (
-//     <PageWrapper>
-//       <h1 style={{ color: '#19C048', textAlign: 'center' }}>{category} Products</h1>
-//       <ProductContainer>
-//         {products.map((product) => (
-//           <ProductCard key={product.id}>
-//              <Link to={`/product/${product.id}`}>
-//             <ProductTitle>{product.name}</ProductTitle>
-//             <ProductDescription>{product.description}</ProductDescription>
-//             <ProductPrice>Price: ${product.price}</ProductPrice>
-//             </Link>
-//             <AddToCartButton onClick={() => handleAddToCart(product.id)}>
-//               Add to Cart
-//             </AddToCartButton>
-//           </ProductCard>
-//         ))}
-//       </ProductContainer>
-//     </PageWrapper>
-//   );<ChamaImage src={img} alt={chama.name} />
-// };
 
-
-
-
-//   return (
-//     <div>
-//       <h1 style={{ color: , textAlign: 'center' }}>{category} Products</h1>
-//       <ProductContainer>
-//         {products.map((product) => (
-
-//             <ProductCard key={product.id}>
-//             <h2>{product.name}</h2>
-//             <p>{product.description}</p>
-//             <p>Price: ${product.price}</p>
-//             <button>Add to Cart</button>
-//           </ProductCard>
-//         ))}
-//       </ProductContainer>
-//     </div>
-//   );
-// }
+  

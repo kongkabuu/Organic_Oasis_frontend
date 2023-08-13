@@ -168,15 +168,7 @@ function Header() {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <RightSection>
-        <CartIconWrapper>
-          <Link to="/cart">
-            <CartIcon />
-            {/* <Link to="/payment">
-            <LoginButton>Payment</LoginButton>
-          </Link> */}
-          </Link>
-
+ 
         </CartIconWrapper>
         <Link to="/profile">
           <GreenProfileIcon />
