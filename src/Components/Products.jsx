@@ -59,23 +59,9 @@ const AddToCartButton = styled.button`
   cursor: pointer;
   align-self: center;
 
-
-
 `;
 
-const Products = () => {
-  const { category } = useParams();
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-
-    fetch(`https://organic-5ku0.onrender.com/products?category=${category}`)
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error('Error fetching products:', error));
-  }, [category]);
-// ...
-const mergedProducts = [...products, ...hardCodedProducts];
 
 const hardCodedProducts = [
   {
@@ -166,6 +152,20 @@ const hardCodedProducts = [
 ];
 
 // ...
+const Products = () => {
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+
+    fetch(`https://organic-5ku0.onrender.com/products?category=${category}`)
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error('Error fetching products:', error));
+  }, [category]);
+// ...
+const mergedProducts = [...products, ...hardCodedProducts];
+
 
   const handleAddToCart = (productId) => {
     fetch('https://organic-5ku0.onrender.com/order_items', {
