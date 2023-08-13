@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { useCart } from './CartContext';
+// import { useCart } from './CartContext';
 
 const ProductDetailsWrapper = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const AddToCartButton = styled.button`
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const { addToCart, cartItems } = useCart();
+  // const { addToCart, cartItems } = useCart();
 
   // const handleAddToCart = (productId) => {
   //   const selectedProduct = {
