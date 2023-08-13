@@ -59,7 +59,7 @@ const AddToCartButton = styled.button`
   cursor: pointer;
   align-self: center;
 
- 
+
 
 `;
 
@@ -68,7 +68,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-  
+
     fetch(`https://organic-5ku0.onrender.com/products?category=${category}`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
@@ -121,4 +121,4 @@ const Products = () => {
 export default Products;
 
 
-  
+

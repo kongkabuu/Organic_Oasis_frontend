@@ -160,6 +160,7 @@ function Header() {
     console.log('Searching for:', searchQuery);
   };
 
+
   return (
     <HeaderContainer>
       <LogoImage src={logo} alt="Fresh" />
@@ -168,7 +169,9 @@ function Header() {
         value={searchQuery}
         onChange={handleInputChange}
       />
- 
+      <RightSection>
+        <CartIconWrapper>
+          {/* Your cart icon or component */}
         </CartIconWrapper>
         <Link to="/profile">
           <GreenProfileIcon />
@@ -177,6 +180,6 @@ function Header() {
       </RightSection>
     </HeaderContainer>
   );
-}
+  }
 
 export default Header;
