@@ -10,11 +10,12 @@ const PageWrapper = styled.div`
 `;
 
 const ProductContainer = styled.div`
-   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
+display: grid;
+grid-template-columns: repeat(5, 1fr); /* Four columns */
+gap: 20px;
+row-gap: 200px;
+padding: 20px;
+justify-items: center; /* Center content horizontally */
 `;
 
 const ProductCard = styled.div`
@@ -164,7 +165,7 @@ const Products = () => {
       .catch((error) => console.error('Error fetching products:', error));
   }, [category]);
 // ...
-const mergedProducts = [...products, ...hardCodedProducts];
+const mergedProducts = [ ...products];
 
 
   const handleAddToCart = (productId) => {
