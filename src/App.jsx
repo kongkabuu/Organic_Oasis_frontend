@@ -1,4 +1,4 @@
-import {  BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import { AuthProvider } from "./Components/AuthContext"
 import Header from './Components/Header';
 import HomePage from "./Components/HomePage";
@@ -10,39 +10,38 @@ import Products from './Components/Products';
 import SellersPage from  './Components/SellersPage';
 import Cart from './Components/Cart';
 import ProductDetails from './Components/ProductDetails';
-
-
+// import PaymentForm from './Components/PaymentForm';
+// import ProductDetails from './Components/ProductDetails';
 
 function App() {
   return (
     // <AuthProvider>
-    <Router>
+    // <Router>
     <div>
           <Header/>
 
 
           <Routes>
             <Route path="/sellers" element={<SellersPage />} />
-          </Routes>
 
 
-          <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/cart" element={<Cart />}/>
+            {/* <Route path="/payment" component={PaymentForm} /> */}
             <Route path="/profile" element={<Profile/>}/>
-            {/* <Route path="/sellers" element={<SellersPage />} /> */}
-
-             <Route path="/products" element={<Products/>}/>
+            <Route path="/sellers" element={<SellersPage />} />
              <Route path="/products" element={<Products/>}/>
             <Route path="/products/:category" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+
+            {/* <Route path="/product/:id" element={<ProductDetails />} /> */}
             <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
 
           </Routes>
           <Footer />
     </div>
-    </Router>
+    // </Router>
     // </AuthProvider>
   );
 }

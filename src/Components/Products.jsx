@@ -63,14 +63,14 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/products?category=${category}`)
+    fetch(`https://organic-5ku0.onrender.com/products?category=${category}`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error));
   }, [category]);
 
   const handleAddToCart = (productId) => {
-    fetch('http://127.0.0.1:3000/order_items', {
+    fetch('https://organic-5ku0.onrender.com/order_items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -351,7 +351,7 @@ export default Products;
 //         ))}
 //       </ProductContainer>
 //     </PageWrapper>
-//   );
+//   );<ChamaImage src={img} alt={chama.name} />
 // };
 
 

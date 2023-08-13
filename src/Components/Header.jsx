@@ -5,22 +5,26 @@ import { IoSearch } from 'react-icons/io5';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
+
 const LogoImage = styled.img`
   width: 10rem;
   height: 5rem;
   margin-right: 5cm;
 `;
+
 const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
   border: 2px solid black;
   border-radius: 5px;
   padding: 0.01rem;
-  background-color: #FFFFFF; /* Set the background color to green */
+  background-color: #ffffff; /* Set the background color to green */
 `;
+
 const CartIconWrapper = styled.div`
   margin-left: 3cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
+
 const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
@@ -30,14 +34,17 @@ const HeaderContainer = styled.div`
   background-color: var(--white-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0.1cm;
+
   /* Add styles to center the elements */
   ${SearchBarContainer} {
     margin-left: 15rem; /* Space between SearchBar and Profile */
   }
+
   ${CartIconWrapper} {
-    margin-left: 20rem; /* Space between Profile and ShoppingCartIcon */
+    margin-left: 12rem; /* Space between Profile and ShoppingCartIcon */
   }
 `;
+
 const SearchButton = styled.button`
   padding: 0.5rem 1rem;
   background-color: var(--first-color);
@@ -52,18 +59,21 @@ const SearchButton = styled.button`
     background-color: var(--dark-color);
   }
 `;
+
 const CartIcon = styled(ShoppingCartIcon)`
-  color: #19C048;
+  color: #19c048;
   margin-top: 0.01cm;
   transform: scale(1.1);
   margin-left: 2cm; /* Set the margin-left to 3cm to move the cart icon to the left */
 `;
+
 const SearchBarForm = styled.form`
   display: flex;
   align-items: center;
   /* Add 'flex: 1' to the form to make the input expand to fill the remaining space */
   flex: 1;
 `;
+
 const SearchInput = styled.input`
   border: none;
   outline: none;
@@ -79,12 +89,14 @@ const SearchInput = styled.input`
     opacity: 0.5;
   }
 `;
+
 const SearchIcon = styled(IoSearch)`
   font-size: 1.2rem;
   cursor: pointer;
-  background-color: #19C048; /* Set the background color to white */
+  background-color: #19c048; /* Set the background color to white */
   height: 100%;
   width: 2rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,16 +105,18 @@ const RightSection = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const GreenProfileIcon = styled(AccountCircleIcon)`
-  color: #19C048; /* Set the color to the specified green */
+  color: #19c048; /* Set the color to the specified green */
   width: 9.4rem; /* Increase the width to make the diameter 1cm bigger */
   margin-left: 1cm;
   height: 9.4rem; /* Increase the height to make the diameter 1cm bigger */
 `;
+
 const LoginButton = styled(Link)`
-  margin-left: 2rem;
+  margin-left: 1rem;
   padding: 0.2rem 0.8rem;
-  background-color: #19C048;
+  background-color: #19c048;
   color: white;
   border: none;
   border-radius: 4px;
@@ -112,9 +126,10 @@ const LoginButton = styled(Link)`
   text-decoration: none; /* Remove default link styling */
   transition: background-color 0.2s ease-in-out;
   &:hover {
-    background-color: #128A32; /* Darker color on hover */
+    background-color: #128a32; /* Darker color on hover */
   }
 `;
+
 function SearchBar({ onSubmit, value, onChange }) {
   return (
     <SearchBarContainer>
@@ -131,16 +146,20 @@ function SearchBar({ onSubmit, value, onChange }) {
     </SearchBarContainer>
   );
 }
+
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
+
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     // Perform the search action here with the 'searchQuery' value
     console.log('Searching for:', searchQuery);
   };
+
   return (
     <HeaderContainer>
       <LogoImage src={logo} alt="Fresh" />
@@ -153,7 +172,11 @@ function Header() {
         <CartIconWrapper>
           <Link to="/cart">
             <CartIcon />
+            {/* <Link to="/payment">
+            <LoginButton>Payment</LoginButton>
+          </Link> */}
           </Link>
+
         </CartIconWrapper>
         <Link to="/profile">
           <GreenProfileIcon />
@@ -163,4 +186,5 @@ function Header() {
     </HeaderContainer>
   );
 }
+
 export default Header;

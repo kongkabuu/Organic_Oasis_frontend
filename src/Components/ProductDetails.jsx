@@ -59,7 +59,7 @@ const ProductDetails = () => {
 
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/products/${id}`)
+    fetch(`https://organic-5ku0.onrender.com/${id}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => console.error('Error fetching product details:', error));
@@ -74,7 +74,7 @@ const ProductDetails = () => {
 
   return (
     <ProductDetailsWrapper>
-      <ProductImage src={`http://localhost:3000${product.image.url}`} alt={product.name} />
+      <ProductImage src={`https://organic-5ku0.onrender.com${product.image.url}`} alt={product.name} />
       <ProductName>{product.name}</ProductName>
       <ProductDescription>{product.desc}</ProductDescription>
       <ProductPrice>Price: ${product.price}</ProductPrice>

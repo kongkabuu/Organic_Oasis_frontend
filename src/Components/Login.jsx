@@ -25,7 +25,7 @@ export default function Login() {
     e.preventDefault();
 
     // Perform the login using the fetch request
-    fetch("http://127.0.0.1:3000/login", {
+    fetch("https://organic-5ku0.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

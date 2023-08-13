@@ -23,7 +23,7 @@ export default function SignUp() {
   function handleSubmit(e) {
     e.preventDefault();
     // Perform the login using the fetch request
-    fetch("http://127.0.0.1:3000/register", {
+    fetch("https://organic-5ku0.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

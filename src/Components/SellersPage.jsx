@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './SellersPage.css';
-import { useAuth } from './AuthContext';
+// import './SellersPage.css';
 
-export default function SellersPage({ loggedInUserId }) {
-  const { isLoggedIn } = useAuth(); // Use isLoggedIn from useAuth
-
-
-
-  const [seller, setSeller] = useState({});
+const SellersPage = () => {
+  const [sellers, setSellers] = useState([]);
   const [newProductName, setNewProductName] = useState('');
   const [newProductDescription, setNewProductDescription] = useState('');
   const [newProductPrice, setNewProductPrice] = useState('');
@@ -16,57 +11,121 @@ export default function SellersPage({ loggedInUserId }) {
   const [newProductCategory, setNewProductCategory] = useState('');
 
   useEffect(() => {
+    axios.get('https://organic-5ku0.onrender.com/sellers') // Update the URL as needed
+      .then(response => {
+        setSellers(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching sellers:', error);
+      });
+  }, []);
 
-      axios.get(`http://127.0.0.1:3000/users`)
-        .then(response => {
-          setSeller(response.data);
+  const handleAddProduct = (sellerId) => {
+    const newProduct = {
+      name: newProductName,
+      description: newProductDescription,
+      price: parseFloat(newProductPrice),
+      image: newProductImage,
+      category: newProductCategory,
+    };
 
-        })
-        .catch(error => {
-          console.error('Error fetching seller:', error);
+    axios.post(`https://organic-5ku0.onrender.com/sellers/${sellerId}/products`, newProduct)
+      .then(response => {
+        // Update the sellers state with the new product
+        const updatedSellers = sellers.map(seller => {
+          if (seller.id === sellerId) {
+            return {
+              ...seller,
+              products: [...seller.products, response.data],
+            };
+          }
+          return seller;
         });
-    }
-  , []);
+        setSellers(updatedSellers);
 
-  const handleAddProduct = () => {
-    // ... your existing logic for adding a new product
+        // Clear the form fields
+        setNewProductName('');
+        setNewProductDescription('');
+        setNewProductPrice('');
+        setNewProductImage('');
+        setNewProductCategory('');
+      })
+      .catch(error => {
+        console.error('Error adding product:', error);
+      });
   };
 
   return (
     <div className="sellers-page">
-      <div className="seller-container">
-        <div className="seller-profile">
-          <div className="seller-info">
-            <div className="seller-header">
-              <div className="seller-avatar">
-                <img src={seller.image && seller.image.url} alt={seller.name} />
+      <div className="container">
+        {sellers.map(seller => (
+          <div key={seller.id} className="seller-profile">
+            <div className="profile-info">
+              <div className="profile-pic">
+                <img src={seller.profile_pic} alt={seller.name} />
               </div>
-              <div className="user-details">
-                <h1 className="user-name">{seller.name}</h1>
-                <p className="user-contact">Contact: {seller.contacts}</p>
-                {/* Add other seller information as needed */}
-              </div>
+              <h2 className="seller-name">{seller.name}</h2>
+              <p className="contact-location">Contact: {seller.contacts}</p>
+              <p className="contact-location">Location: {seller.location}</p>
+              <button
+                className="add-product-btn"
+                onClick={() => handleAddProduct(seller.id)}
+              >
+                Add New Product
+              </button>
             </div>
-            <div className="seller-products">
-              {/* Render seller's products */}
+            <div className="product-form">
+              <h3>Add New Product</h3>
+              <form>
+                <label htmlFor="productName">Product Name</label>
+                <input
+                  type="text"
+                  id="productName"
+                  value={newProductName}
+                  onChange={e => setNewProductName(e.target.value)}
+                />
+
+                <label htmlFor="productDescription">Product Description</label>
+                <textarea
+                  id="productDescription"
+                  value={newProductDescription}
+                  onChange={e => setNewProductDescription(e.target.value)}
+                />
+
+                <label htmlFor="productPrice">Product Price</label>
+                <input
+                  type="number"
+                  id="productPrice"
+                  value={newProductPrice}
+                  onChange={e => setNewProductPrice(e.target.value)}
+                />
+
+                <label htmlFor="productImage">Product Image URL</label>
+                <input
+                  type="text"
+                  id="productImage"
+                  value={newProductImage}
+                  onChange={e => setNewProductImage(e.target.value)}
+                />
+
+                <label htmlFor="productCategory">Product Category</label>
+                <input
+                  type="text"
+                  id="productCategory"
+                  value={newProductCategory}
+                  onChange={e => setNewProductCategory(e.target.value)}
+                />
+
+                <button type="submit" onClick={() => handleAddProduct(seller.id)}>
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
-          <div className="seller-actions">
-            <button className="add-product-btn" onClick={handleAddProduct}>
-              Add New Product
-            </button>
-          </div>
-        </div>
-        <div className="product-form">
-          <h3>Add New Product</h3>
-          <form>
-            {/* Add input fields for new product */}
-            <button type="button" onClick={handleAddProduct}>
-              Submit
-            </button>
-          </form>
-        </div>
+        ))}
       </div>
     </div>
   );
-}
+};
+
+export default SellersPage;
