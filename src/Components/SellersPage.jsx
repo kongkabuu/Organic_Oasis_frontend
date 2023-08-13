@@ -11,7 +11,8 @@ const SellersPage = () => {
   const [newProductCategory, setNewProductCategory] = useState('');
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:3000/sellers') // Update the URL as needed
+    axios.get('https://organic-5ku0.onrender.com/sellers') // Update the URL as needed
+
       .then(response => {
         setSellers(response.data);
       })
@@ -29,7 +30,8 @@ const SellersPage = () => {
       category: newProductCategory,
     };
 
-    axios.post(`http://127.0.0.1:3000/sellers/${sellerId}/products`, newProduct)
+    axios.post(`https://organic-5ku0.onrender.com/sellers/${sellerId}/products`, newProduct)
+
       .then(response => {
         // Update the sellers state with the new product
         const updatedSellers = sellers.map(seller => {
