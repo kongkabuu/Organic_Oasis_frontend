@@ -6,6 +6,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  align-items: center;
 `;
 
 const ProductContainer = styled.div`
@@ -17,48 +18,46 @@ const ProductContainer = styled.div`
 `;
 
 const ProductCard = styled.div`
+  border: 1px solid #ccc;
   border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-`;
-
-const ProductImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-`;
-
-const ProductDetails = styled.div`
-  padding: 20px;
+  width: 343px;
+  height: 298px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ProductTitle = styled.h2`
-  font-size: 20px;
-  margin: 10px 0;
+  font-size: 24px;
+  margin-bottom: 10px;
+`;
+
+const ProductImage = styled.img`
+  height: 75%;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 `;
 
 const ProductDescription = styled.p`
-  font-size: 14px;
-  color: #777;
-  margin: 0;
+  font-size: 16px;
+  margin-bottom: 10px;
 `;
 
 const ProductPrice = styled.p`
-  font-size: 16px;
-  font-weight: bold;
-  color: #19C048;
-  margin: 10px 0;
+  font-size: 18px;
+  margin-bottom: 10px;
 `;
 
 const AddToCartButton = styled.button`
-  font-size: 14px;
+  font-size: 16px;
   background-color: #19C048;
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+  align-self: center;
 `;
 
 const Products = () => {
@@ -98,22 +97,21 @@ const Products = () => {
         {products.map((product) => (
           <ProductCard key={product.id}>
             <Link to={`/product/${product.id}`}>
+              <ProductTitle>{product.name}</ProductTitle>
               <ProductImage src={product.image} alt={product.name} />
-              <ProductDetails>
-                <ProductTitle>{product.name}</ProductTitle>
-                <ProductDescription>{product.description}</ProductDescription>
-                <ProductPrice>Price: ${product.price}</ProductPrice>
-                <AddToCartButton onClick={() => handleAddToCart(product.id)}>
-                  Add to Cart
-                </AddToCartButton>
-              </ProductDetails>
+              <ProductDescription>{product.description}</ProductDescription>
+              <ProductPrice>Price: ${product.price}</ProductPrice>
             </Link>
+            <AddToCartButton onClick={() => handleAddToCart(product.id)}>
+              Add to Cart
+            </AddToCartButton>
           </ProductCard>
         ))}
       </ProductContainer>
     </PageWrapper>
   );
 };
+
 
 
 export default Products;
