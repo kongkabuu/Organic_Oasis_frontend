@@ -13,7 +13,7 @@ const ProductContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(5, 1fr); /* Four columns */
 gap: 20px;
-row-gap: 70px;
+row-gap: 75px;
 padding: 20px;
 justify-items: center; /* Center content horizontally */
 `;
